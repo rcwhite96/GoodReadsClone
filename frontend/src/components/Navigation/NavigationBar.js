@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux'
 
 // import other components
 import ProfileButton from './ProfileButton';
+import './NavBar.module.css'
 
 
 const NavigationBar = ({ isLoaded }) => {
@@ -17,22 +18,20 @@ const NavigationBar = ({ isLoaded }) => {
       )
    } else {
       sessionLinks = (
-         <div>
-            <NavLink to='/signup'>Sign Up</NavLink>
-            <NavLink to='/login'>Log In</NavLink>
+         <div className="nav-btns">
+            <NavLink to="/login" className="login-btn">Log In</NavLink>
+            <NavLink to="/signup" className="signup-btn">Sign Up</NavLink>
          </div>
       )
    }
 
    return (
-      <div>
-         <ul>
-            <li>
+      <ul>
+         <li>
                <NavLink to='/'>Home</NavLink>
                {isLoaded && sessionLinks}
-            </li>
-         </ul>
-      </div>
+         </li>
+      </ul>
    );
 };
 
