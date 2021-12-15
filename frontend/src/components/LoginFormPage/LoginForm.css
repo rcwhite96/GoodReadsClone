@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
+
+
+.login-container {
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(37, 29, 37);
+    margin: 18rem;
+    margin-left: 35rem;
+    margin-right: 35rem;
+    padding: 80px;
+    padding-top: 30px;
+    padding-bottom: 40px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    border: 1px solid rgb(220, 65, 128);
+}
+
+ul{
+    list-style-type: none;
+}
+
+h2{
+    color: rgb(220, 65, 128);
+    font-family: 'Quicksand', sans-serif;
+    margin: 2px;
+}
+
+.email-input{
+    margin-bottom: 10px;
+}
+
+.log-in{
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin: 5px;
+    font-family: 'Quicksand', sans-serif;
+    text-decoration: none;
+    background-color: rgb(220, 65, 128);
+    color: white;
+    border-radius: 5px;
+    border: none;
+}
