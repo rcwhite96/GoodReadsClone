@@ -4,7 +4,7 @@ import { Redirect } from 'react-router-dom'
 
 import { login } from '../../store/session'
 
-import styles from './LoginForm.module.css';
+import './LoginForm.css';
 
 
 const LoginFormPage = () => {
@@ -33,34 +33,31 @@ const LoginFormPage = () => {
 
 
    return (
-      <div>
-         <form onSubmit={handleSubmit}>
+         <form onSubmit={handleSubmit} className="login-container">
+            <h2>Login</h2>
             <ul>
                {errors.map((error, i) => (
                   <li key={i}>{error}</li>
                ))}
             </ul>
-            <label>
-               Username or Email
                <input
+                  className="email-input"
+                  placeholder='email'
                   type='text'
                   value={credential}
                   onChange={(e) => setCredential(e.target.value)}
                   required
                />
-            </label>
-            <label>
-               Password
                <input
+                  className="email-input"
+                  placeholder='password'
                   type='password'
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   required
                />
-            </label>
-            <button type='submit'>Log In</button>
+            <button type='submit' className="log-in">Log In</button>
          </form>
-      </div>
    );
 };
 
