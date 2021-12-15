@@ -9,6 +9,9 @@ module.exports = (sequelize, DataTypes) => {
     status: DataTypes.BOOLEAN
   }, {});
   Media.associate = function(models) {
+    Media.hasMany(models.Review, {
+      foreignKey: 'mediaId'
+    })
   };
   return Media;
 };
