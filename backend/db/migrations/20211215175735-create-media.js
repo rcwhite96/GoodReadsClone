@@ -8,13 +8,21 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      creator: {
+      imageURL: {
         allowNull: false,
         type: Sequelize.STRING
       },
+      title: {
+        allowNull: false,
+        type: Sequelize.STRING(50)
+      },
+      creator: {
+        allowNull: false,
+        type: Sequelize.STRING(50)
+      },
       mediaType: {
         allowNull: false,
-        type: Sequelize.STRING
+        type: Sequelize.STRING(50)
       },
       description: {
         allowNull: false,
