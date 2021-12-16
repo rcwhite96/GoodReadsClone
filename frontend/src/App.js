@@ -9,6 +9,7 @@ import { restoreUser } from './store/session'
 import LoginFormPage from './components/LoginFormPage';
 import SignUpFormPage from './components/SignUpFormPage';
 import NavigationBar from './components/Navigation/NavigationBar';
+import AllMediaPage from './components/AllMediaPage/AllMediaPage'
 
 function App() {
   const dispatch = useDispatch();
@@ -22,7 +23,6 @@ function App() {
   return (
     <>
       <NavigationBar isLoaded={isLoaded} />
-
       {isLoaded && (
         <Switch>
           <Route path="/login">
@@ -30,6 +30,9 @@ function App() {
           </Route>
           <Route path="/signup">
             <SignUpFormPage />
+          </Route>
+          <Route path="/">
+            <AllMediaPage/>
           </Route>
         </Switch>
       )}
