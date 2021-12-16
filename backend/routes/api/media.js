@@ -15,6 +15,7 @@ router.get('/', asyncHandler(async(req, res) => {
     return res.json(media)
 }))
 
+
 router.get('/:id(\\d+)', asyncHandler(async(req, res) => {
     const media = await Media.findByPk(req.params.id)
     return res.json(media)
