@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
 
 
-.login-container {
+.signup-container {
     display: flex;
     flex-direction: column;
     background-color: rgb(37, 29, 37);
@@ -34,7 +34,7 @@ h2{
     margin-bottom: 10px;
 }
 
-.log-in{
+.sign-up{
     padding: 5px;
     padding-left: 10px;
     padding-right: 10px;
@@ -47,6 +47,6 @@ h2{
     border: none;
 }
 
-.log-in:hover{
+.sign-up:hover{
     background-color: rgb(221, 124, 163);
 }
