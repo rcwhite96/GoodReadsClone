@@ -13,8 +13,8 @@ export default function AllProjectsPage(){
         <NavLink key={index} to={`/media/${media.id}`}>
             <div className="image-container">
                 <img className="media-image" src={media.imageURL} alt="media-img"/>
+                <div className="title">{media.title}</div>
             </div>
-            <div>{media.title}</div>
         </NavLink>
     )
 

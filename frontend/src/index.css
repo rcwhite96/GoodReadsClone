@@ -3,6 +3,9 @@ body{
     background-color: rgb(59, 45, 59);
 }
 
+a{
+    text-decoration: none;
+}
 .nav-btn{
     padding: 5px;
     margin: 5px;
