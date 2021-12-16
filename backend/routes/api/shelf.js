@@ -72,5 +72,15 @@ const validateShelf = [
       return res.json(shelfUpdate)
   }))
 
+  router.delete('/:id(\\d+)', restoreUser, asyncHandler(async(req, res , next) => {
+      const {user} = req
+      if(!user){
+          return next(shelfError('you must be logged in to delete a shelf.'))
+      }
+      const shelf = await Shelf.findByPk(req.params.id)
+      await shelf.destroy()
+      return res.json({message: 'Shelf successfully deleted.'})
+  }))
+
 
 module.exports = router;

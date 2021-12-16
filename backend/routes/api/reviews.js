@@ -16,7 +16,7 @@ const reviewError = (message) => {
     return err;
   };
 
-  
+
   router.get('/', asyncHandler(async(req, res) => {
       const reviews = await Review.findAll()
       res.json(reviews)
@@ -42,4 +42,26 @@ const reviewError = (message) => {
       }
       const newReview = await Review.create({userId: user.dataValues.id, title, content, mediaId})
       return res.json(newReview)
+  }))
+
+  router.put('/:id(\\d+)', restoreUser, validateShelf, asyncHandler(async(req, res, next) => {
+    const reviewUpdate = await Review.findByPk(req.params.id);
+    const {title, content, mediaId} = req.body
+    const{user} = req
+      if(!user){
+          return next(reviewError('Must be logged in to edit a review.'))
+      }
+      const review = {userId: user.dataValues.id, title, content, mediaId}
+      await reviewUpdate.update(review)
+      return res.json(reviewUpdate)
+  }))
+
+  router.delete('/:id(\\d+)', restoreUser, asyncHandler(async(req, res, next) => {
+    const {user} = req
+      if(!user){
+          return next(shelfError('you must be logged in to delete a review.'))
+      }
+      const review = await Review.findByPk(req.params.id)
+      await review.destroy()
+      return res.json({message: 'Review successfully deleted.' })
   }))
