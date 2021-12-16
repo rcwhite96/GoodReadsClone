@@ -1,3 +1,0 @@
-const {csrfFetch} = require('./csrf')
-
-

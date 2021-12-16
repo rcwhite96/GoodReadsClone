@@ -3,11 +3,13 @@ import thunk from 'redux-thunk';
 
 // importing reducers
 import session from './session'
+import media from './media'
 
 
 //REDUCER COMBINER
 const rootReducer = combineReducers({
-   session
+   session,
+   media
 });
 
 let enhancer;
