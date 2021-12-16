@@ -11,7 +11,7 @@ const { handleValidationErrors } = require('../../utils/validation');
 
 router.get('/', asyncHandler(async(req, res) => {
     const media = await Media.findAll()
-    console.log(res.json(media))
+    // console.log(res.json(media))
     return res.json(media)
 }))
 
