@@ -2,3 +2,19 @@
 body{
     background-color: rgb(59, 45, 59);
 }
+
+.nav-btn{
+    padding: 5px;
+    margin: 5px;
+    font-family: 'Quicksand', sans-serif;
+    text-decoration: none;
+    background-color: rgb(220, 65, 128) ;
+    color: white;
+    border-radius: 5px;
+    border:none;
+    text-decoration: none;
+}
+
+.nav-btn:hover{
+    background-color: rgb(221, 124, 163);
+}

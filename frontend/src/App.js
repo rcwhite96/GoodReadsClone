@@ -10,6 +10,7 @@ import LoginFormPage from './components/LoginFormPage';
 import SignUpFormPage from './components/SignUpFormPage';
 import NavigationBar from './components/Navigation/NavigationBar';
 import AllMediaPage from './components/AllMediaPage/AllMediaPage'
+import OneMediaPage from './components/OneMediaPage/OneMediaPage';
 
 function App() {
   const dispatch = useDispatch();
@@ -31,8 +32,11 @@ function App() {
           <Route path="/signup">
             <SignUpFormPage />
           </Route>
-          <Route path="/">
+          <Route path="/media">
             <AllMediaPage/>
+          </Route>
+          <Route path="/media/:mediaId">
+            <OneMediaPage/>
           </Route>
         </Switch>
       )}
