@@ -18,7 +18,7 @@ const NavigationBar = ({ isLoaded }) => {
       )
    } else {
       sessionLinks = (
-         <div id="nav-btns">
+         <div>
             <NavLink to="/login">
                <button className="nav-btn">Log In</button>
             </NavLink>
@@ -30,9 +30,9 @@ const NavigationBar = ({ isLoaded }) => {
    }
 
    return (
-         <div>
-               <NavLink to='/' className="home-btn">
-                  <button className="nav-btn">Home</button>
+         <div className="nav-bar">
+               <NavLink to='/'>
+                  <button className="home-btn">Home</button>
                </NavLink>
                {isLoaded && sessionLinks}
          </div>

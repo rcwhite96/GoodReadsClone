@@ -12,7 +12,7 @@ export default function AllProjectsPage(){
     const cards = medias?.map((media, index) =>
         <NavLink key={index} to={`/media/${media.id}`}>
             <div className="image-container">
-                <img className="media-image" src={media.imageURL[0]} alt="media-img"/>
+                <img className="media-image" src={media.imageURL} alt="media-img"/>
             </div>
             <div>{media.title}</div>
         </NavLink>
@@ -26,7 +26,7 @@ export default function AllProjectsPage(){
     return (
         <div>
             <div className='header'>Browse Media</div>
-            <div className='media-wrapper'>
+            <div className='media-container'>
                 {cards}
             </div>
         </div>
