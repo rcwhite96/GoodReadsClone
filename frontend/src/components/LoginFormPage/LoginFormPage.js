@@ -42,7 +42,7 @@ const LoginFormPage = () => {
             </ul>
                <input
                   className="email-input"
-                  placeholder='email'
+                  placeholder='email or username'
                   type='text'
                   value={credential}
                   onChange={(e) => setCredential(e.target.value)}
@@ -57,6 +57,7 @@ const LoginFormPage = () => {
                   required
                />
             <button type='submit' className="log-in">Log In</button>
+            <button className="log-in" onClick={() => {setCredential('Demo-lition'); setPassword('password');}}>Demo User</button>
          </form>
    );
 };

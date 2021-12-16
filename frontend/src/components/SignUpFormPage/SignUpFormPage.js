@@ -5,7 +5,7 @@ import { Redirect } from 'react-router-dom';
 // thunk import
 import { signUp } from '../../store/session';
 
-import styles from './SignUpForm.module.css'
+import './SignUpForm.css'
 
 const SignUpFormPage = () => {
    const dispatch = useDispatch();
@@ -37,48 +37,43 @@ const SignUpFormPage = () => {
    };
 
    return (
-      <div>
-         <form onSubmit={handleSubmit}>
+         <form onSubmit={handleSubmit} className="signup-container">
+            <h2>Sign Up</h2>
             <ul>
                {errors.map((error, i) => (
                   <li key={i}>{error}</li>
                ))}
             </ul>
-            <label>
-               Email
                <input
+                  className="email-input"
+                  placeholder='email'
                   type='email'
                   value={email}
                   onChange={e => setEmail(e.target.value)}
                />
-            </label>
-            <label>
-               Username
                <input
+                  className="email-input"
+                  placeholder='username'
                   type='text'
                   value={username}
                   onChange={e => setUsername(e.target.value)}
                />
-            </label>
-            <label>
-               Password
                <input
+                  className="email-input"
+                  placeholder='password'
                   type='password'
                   value={password}
                   onChange={e => setPassword(e.target.value)}
                />
-            </label>
-            <label>
-               Confirm Password
                <input
+                  className="email-input"
+                  placeholder='confirm password'
                   type='password'
                   value={confirmPass}
                   onChange={e => setConfirmPass(e.target.value)}
                />
-            </label>
-            <button type='submit'>Sign Up</button>
+            <button type='submit' className="sign-up">Sign Up</button>
          </form>
-      </div>
    );
 };
 

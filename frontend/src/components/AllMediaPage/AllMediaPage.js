@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useSelector, useDispatch } from 'react-redux';
 import{ NavLink } from 'react-router-dom'
 import { getAll } from  '../../store/media'
+import './AllMediaPage.css'
 
 
 export default function AllProjectsPage(){

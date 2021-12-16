@@ -27,7 +27,7 @@ const mediaReducer = (state = initialState, action) => {
         switch(action.type){
             case GET_ALL_MEDIA:
                 newState = {...state}
-                newState.media = action.payload.media
+                newState.media = action.payload
                 return newState
             default:
                 return state;
