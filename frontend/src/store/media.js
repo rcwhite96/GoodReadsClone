@@ -48,9 +48,7 @@ const mediaReducer = (state = initialState, action) => {
                 return newState
             case GET_ONE_MEDIA:
                 newState = {...state}
-                // console.log(newState)
                 newState.oneMedia = action.payload
-                // console.log(newState.oneMedia)
                 return newState
             default:
                 return state;

@@ -4,12 +4,14 @@ import thunk from 'redux-thunk';
 // importing reducers
 import session from './session'
 import media from './media'
+import review from './review'
 
 
 //REDUCER COMBINER
 const rootReducer = combineReducers({
    session,
-   media
+   media,
+   review
 });
 
 let enhancer;
