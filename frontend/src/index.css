@@ -16,6 +16,10 @@ a{
     border-radius: 5px;
     border:none;
     text-decoration: none;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+
 }
 
 .nav-btn:hover{
@@ -32,6 +36,9 @@ a{
     border-radius: 5px;
     border:none;
     text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .home-btn:hover{

@@ -25,7 +25,7 @@ module.exports = {
         updatedAt: new Date()
       },
       {
-        imageURL: 'https://static.wikia.nocookie.net/deusex/images/a/a0/DXHR_box_cover.jpg/revision/latest?cb=20200825225713&path-prefix=en',
+        imageURL: 'https://static.wikia.nocookie.net/deusex/images/7/7f/DeusExHumanRevolutionCover.png/revision/latest?cb=20130611054408&path-prefix=en',
         title: 'Deus Ex: Human Revolution',
         creator: 'Square Enix',
         description: `Set in the year 2027, players control Adam Jensen, a security officer for Sarif Industries, which develops controversial artificial organs dubbed "augmentations". After an attack on Sarif, Jensen undergoes extensive augmentation and investigates the shadowy organization behind the attack. The story explores themes of transhumanism and the growing power of megacorporations and their impact on social class. It also uses the series' cyberpunk setting and conspiracy theory motif.`,
@@ -35,7 +35,7 @@ module.exports = {
         updatedAt: new Date()
       },
       {
-        imageURL: 'https://gh.cdn.sewest.net/assets/ident//games/deus-ex-mankind-divided/en_US/GamePage_Header_Portrait_03.jpg?quality=65&width=960px&height=1280px',
+        imageURL: 'https://i.pinimg.com/originals/e6/76/a8/e676a8ada0a3cf3349c5d5170dbc10b3.jpg',
         title: 'Deus Ex: Mankind Divided',
         creator: 'Square Enix',
         description: `Set in 2029, two years after Human Revolution, the world is divided between normal humans and those with advanced, controversial artificial organs dubbed "augmentations". After a violent event known as the Aug Incident, augmented people have been segregated; this prompts heated debate and an era of "mechanical apartheid". Main protagonist Adam Jensen, equipped with advanced new augmentations after Human Revolution, is a double agent for the hacker group Juggernaut Collective to expose the Illuminati, which is orchestrating events behind the scenes. The story explores themes of transhumanism and discrimination, using the series' recurring cyberpunk setting and conspiracy theory motif.`,

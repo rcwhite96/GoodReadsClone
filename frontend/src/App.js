@@ -32,7 +32,7 @@ function App() {
           <Route path="/signup">
             <SignUpFormPage />
           </Route>
-          <Route path="/media">
+          <Route path="/media" exact={true}>
             <AllMediaPage/>
           </Route>
           <Route path="/media/:mediaId" exact={true}>
