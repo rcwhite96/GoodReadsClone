@@ -5,13 +5,15 @@ import thunk from 'redux-thunk';
 import session from './session'
 import media from './media'
 import review from './review'
+import shelf from './shelf'
 
 
 //REDUCER COMBINER
 const rootReducer = combineReducers({
    session,
    media,
-   review
+   review,
+   shelf
 });
 
 let enhancer;

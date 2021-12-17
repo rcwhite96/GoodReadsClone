@@ -11,6 +11,8 @@ const getAllMedia = payload => {
     }
 }
 
+
+//Get one
 const getOneMedia = payload => {
     return{
         type: GET_ONE_MEDIA,
