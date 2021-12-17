@@ -13,6 +13,9 @@ const NavigationBar = ({ isLoaded }) => {
    if (session.user) {
       sessionLinks = (
          <div>
+            <NavLink to="/shelves">
+               <button className="nav-btn">Your Shelves</button>
+            </NavLink>
             <ProfileButton user={session.user} />
          </div>
       )
