@@ -40,8 +40,8 @@ export const getReviews = () => async dispatch => {
     }
 }
 
-export const addReview = (title, content, mediaId) => async dispatch => {
-    const res = await csrfFetch('/api/reviews', {
+export const addReview = (id, title, content, mediaId) => async dispatch => {
+    const res = await csrfFetch(`/api/reviews/${mediaId}`, {
         method: 'POST',
         headers: {'Content-Type': 'application/json' },
         body: JSON.stringify({title, content, mediaId})

@@ -44,7 +44,7 @@ const reviewError = (message) => {
       return res.json(newReview)
   }))
 
-  router.put('/:id(\\d+)', restoreUser, validateShelf, asyncHandler(async(req, res, next) => {
+  router.put('/:id(\\d+)', restoreUser, validateReview, asyncHandler(async(req, res, next) => {
     const reviewUpdate = await Review.findByPk(req.params.id);
     const {title, content, mediaId} = req.body
     const{user} = req
