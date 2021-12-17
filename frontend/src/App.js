@@ -13,6 +13,7 @@ import AllMediaPage from './components/AllMediaPage/AllMediaPage'
 import OneMediaPage from './components/OneMediaPage/OneMediaPage';
 import CreateReview from './components/ReviewForm/ReviewFormPage'
 import SplashPage from './components/SplashPage/SplashPage';
+import AllShelvesPage from './components/AllShelvesPage/AllShelvesPage';
 
 function App() {
   const dispatch = useDispatch();
@@ -45,6 +46,9 @@ function App() {
           </Route>
           <Route path='/media/:mediaId/review' exact={true}>
             <CreateReview/>
+          </Route>
+          <Route path='/shelves' exact={true}>
+            <AllShelvesPage/>
           </Route>
         </Switch>
       )}

@@ -3,13 +3,15 @@ const usersRouter = require('./users.js');
 const sessionRouter = require('./session')
 const mediaRouter = require('./media')
 const shelfRouter = require('./shelf')
+const reviewRouter = require('./reviews')
 
 const router = express.Router();
 
 router.use('/session', sessionRouter);
 router.use('/users', usersRouter);
-router.use('/media', mediaRouter)
-router.use('/shelves', shelfRouter)
+router.use('/media', mediaRouter);
+router.use('/shelves', shelfRouter);
+router.use('/reviews', reviewRouter);
 
 // // POST test route
 // router.post('/test', function (req, res) {
