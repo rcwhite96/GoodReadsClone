@@ -32,8 +32,11 @@ export const getOne = (id) => async dispatch => {
     if(res.ok){
         const data = await res.json()
         dispatch(getOneMedia(data))
+        return data
     }
 }
+
+
 let initialState = {media:[]}
 
 const mediaReducer = (state = initialState, action) => {
@@ -45,7 +48,8 @@ const mediaReducer = (state = initialState, action) => {
                 return newState
             case GET_ONE_MEDIA:
                 newState = {...state}
-                newState.oneMedia = action.payload
+                newState.media = action.payload
+                console.log(newState.media)
                 return newState
             default:
                 return state;

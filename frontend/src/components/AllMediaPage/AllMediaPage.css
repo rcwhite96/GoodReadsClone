@@ -14,8 +14,8 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 3rem;
-    padding: 5rem;
+    gap: 2rem;
+    padding: 4rem;
 
 }
 
@@ -26,13 +26,16 @@
     justify-content: space-between;
     align-items: center;
     width: 300px;
-    height: 400px;
+    height: 450px;
     font-family: 'Quicksand', sans-serif;
     color: rgb(220, 65, 128);
     padding-bottom: 20px;
 
 }
 
+.media-image:hover{
+    transform: scale(1.025)
+}
 .title{
     padding: 10px;
 }

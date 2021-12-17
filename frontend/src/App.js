@@ -35,7 +35,7 @@ function App() {
           <Route path="/media">
             <AllMediaPage/>
           </Route>
-          <Route path="/media/:mediaId">
+          <Route path="/media/:mediaId" exact={true}>
             <OneMediaPage/>
           </Route>
         </Switch>
