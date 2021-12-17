@@ -48,8 +48,8 @@ const mediaReducer = (state = initialState, action) => {
                 return newState
             case GET_ONE_MEDIA:
                 newState = {...state}
-                newState.media = action.payload
-                console.log(newState.media)
+                newState.oneMedia = action.payload
+                console.log(newState.oneMedia)
                 return newState
             default:
                 return state;
