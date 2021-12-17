@@ -65,3 +65,5 @@ const reviewError = (message) => {
       await review.destroy()
       return res.json({message: 'Review successfully deleted.' })
   }))
+
+  module.exports = router;

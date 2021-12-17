@@ -41,7 +41,7 @@ export const getReviews = () => async dispatch => {
 }
 
 export const addReview = (id, title, content, mediaId) => async dispatch => {
-    const res = await csrfFetch(`/api/reviews/${mediaId}`, {
+    const res = await csrfFetch(`/api/reviews/${id}`, {
         method: 'POST',
         headers: {'Content-Type': 'application/json' },
         body: JSON.stringify({title, content, mediaId})
@@ -75,7 +75,7 @@ export const removeReview = (id) => async dispatch => {
     }
 }
 
-let initialState = {media:[]}
+let initialState = {reviews:[]}
 
 const reviewReducer = (state = initialState, action) => {
     let newState

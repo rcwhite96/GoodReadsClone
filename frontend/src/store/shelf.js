@@ -93,7 +93,7 @@ export const removeShelf = (id) => async dispatch => {
     }
 }
 
-let initialState = {media:[]}
+let initialState = {shelves:[]}
 
 const shelfReducer = (state = initialState, action) => {
     let newState
