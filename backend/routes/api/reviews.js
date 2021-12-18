@@ -17,8 +17,8 @@ const reviewError = (message) => {
   };
 
 
-  router.get('/', asyncHandler(async(req, res) => {
-      const reviews = await Review.findAll()
+  router.get('/:id(\\d+)', asyncHandler(async(req, res) => {
+      const reviews = await Review.findByPk(req.params.id)
       res.json(reviews)
   }))
 
@@ -34,7 +34,7 @@ const reviewError = (message) => {
   ];
 
 
-  router.post('/', restoreUser, validateReview, asyncHandler(async(req, res, next) => {
+  router.post('/:id(\\d+)', restoreUser, validateReview, asyncHandler(async(req, res, next) => {
       const{title, content, mediaId} = req.body
       const{user} = req
       if(!user){
