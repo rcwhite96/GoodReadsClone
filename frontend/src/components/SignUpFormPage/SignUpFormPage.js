@@ -19,7 +19,7 @@ const SignUpFormPage = () => {
 
    if (session.user) {
       return (
-         <Redirect to='/' />
+         <Redirect to='/media' />
       );
    };
 

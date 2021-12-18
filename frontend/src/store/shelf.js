@@ -112,13 +112,13 @@ const shelfReducer = (state = initialState, action) => {
                 return newState
             case EDIT_SHELF:
                 newState = {...state}
-                const index = newState.shelves.findIndex(review => review.id === action.payload.id)
+                const index = newState.shelves.findIndex(shelf => shelf.id === action.payload.id)
                 newState.shelves[index] = action.payload
                 newState.currentShelf = action.payload
                 return newState
             case DELETE_SHELF:
                 newState = {...state}
-                const indexRem = newState.shelves.findIndex(review => review.id === action.payload.id)
+                const indexRem = newState.shelves.findIndex(shelf => shelf.id === action.payload.id)
                 newState.shelves.splice(indexRem, 1)
                 return newState
             default:
