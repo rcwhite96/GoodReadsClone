@@ -71,7 +71,7 @@ module.exports = {
     ], {});
 
   },
-
+  //review seeders
   down: (queryInterface, Sequelize) => {
       return queryInterface.bulkDelete('Reviews', null, {});
   }
