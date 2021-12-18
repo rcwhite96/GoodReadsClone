@@ -25,7 +25,7 @@ module.exports = {
         updatedAt: new Date()
       },
       {
-        imageURL: 'https://static.wikia.nocookie.net/deusex/images/7/7f/DeusExHumanRevolutionCover.png/revision/latest?cb=20130611054408&path-prefix=en',
+        imageURL: 'https://www.rpgfan.com/wp-content/uploads/2020/04/Deus-Ex-Human-Revolution-Directors-Cut-packaging-002.jpg',
         title: 'Deus Ex: Human Revolution',
         creator: 'Square Enix',
         description: `Set in the year 2027, players control Adam Jensen, a security officer for Sarif Industries, which develops controversial artificial organs dubbed "augmentations". After an attack on Sarif, Jensen undergoes extensive augmentation and investigates the shadowy organization behind the attack. The story explores themes of transhumanism and the growing power of megacorporations and their impact on social class. It also uses the series' cyberpunk setting and conspiracy theory motif.`,
@@ -134,8 +134,116 @@ module.exports = {
         createdAt: new Date(),
         updatedAt: new Date()
       },
-
-
+      {
+        imageURL: 'https://flxt.tmsimg.com/assets/p16785_p_v10_ae.jpg',
+        title: 'Johnny Mnemonic',
+        creator: 'Robert Longo',
+        description: `In this film based on the William Gibson story, Johnny (Keanu Reeves) is a data courier who has a secret stash of information implanted into his mind. However, the data will kill Johnny if he cannot retrieve it within 48 hours. Accompanied by physically enhanced bodyguard Jane (Dina Meyer), Johnny sets out to acquire the passwords he needs to save himself. Worse yet, he is hunted by gangster Shinji (Denis Akiyama) and businessman Takahashi (Takeshi), both of whom seek the data Johnny possesses.`,
+        mediaType: 'Movie',
+        status: false,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        imageURL: 'https://www.themoviedb.org/t/p/w500/ccqpHq5tk5W4ymbSbuoy4uYOxFI.jpg',
+        title: 'Minority Report',
+        creator: 'Steven Spielberg',
+        description: `Based on a story by famed science fiction writer Philip K. Dick, "Minority Report" is an action-detective thriller set in Washington D.C. in 2054, where police utilize a psychic technology to arrest and convict murderers before they commit their crime. Tom Cruise plays the head of this Precrime unit and is himself accused of the future murder of a man he hasn't even met.`,
+        mediaType: 'Movie',
+        status: false,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        imageURL: 'https://m.media-amazon.com/images/I/91ToraTGY0L._SL1500_.jpg',
+        title: 'RoboCop',
+        creator: 'Paul Verhoeven',
+        description: `In a violent, near-apocalyptic Detroit, evil corporation Omni Consumer Products wins a contract from the city government to privatize the police force. To test their crime-eradicating cyborgs, the company leads street cop Alex Murphy (Peter Weller) into an armed confrontation with crime lord Boddicker (Kurtwood Smith) so they can use his body to support their untested RoboCop prototype. But when RoboCop learns of the company's nefarious plans, he turns on his masters.`,
+        mediaType: 'Movie',
+        status: false,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        imageURL: 'https://flxt.tmsimg.com/assets/p12922738_b1t_v9_aa.jpg',
+        title: 'Mr. Robot',
+        creator: 'Sam Esmail',
+        description: `Young, anti-social computer programmer Elliot works as a cybersecurity engineer during the day, but at night he is a vigilante hacker. He is recruited by the mysterious leader of an underground group of hackers to join their organization. Elliot's task? Help bring down corporate America, including the company he is paid to protect, which presents him with a moral dilemma. Although he works for a corporation, his personal beliefs make it hard to resist the urge to take down the heads of multinational companies that he believes are running -- and ruining -- the world.`,
+        mediaType: 'TV Series',
+        status: false,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        imageURL: 'https://m.media-amazon.com/images/M/MV5BNGNlNjBkODEtZThlOC00YzUxLWI0MjMtMjk3YzJmMDFlNWZlXkEyXkFqcGdeQXVyNjI0MDg2NzE@._V1_.jpg',
+        title: 'Cowboy Bebop',
+        creator: 'Sunrise',
+        description: `The futuristic adventures of an easygoing bounty hunter and his partners.`,
+        mediaType: 'TV Series',
+        status: false,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        imageURL: 'https://media.titanbooks.com/catalog/products/AlteredCarbon_Art_XNfSF8u.jpg',
+        title: 'Altered Carbon',
+        creator: 'Laeta Kalogridis',
+        description: `More than 300 years in the future, society has been transformed by new technology, leading to human bodies being interchangeable and death no longer being permanent. Takeshi Kovacs is the only surviving soldier of a group of elite interstellar warriors who were defeated in an uprising against the new world order. His mind was imprisoned for centuries until impossibly wealthy businessman Laurens Bancroft offers him the chance to live again. Kovacs will have to do something for Bancroft, though, if he wants to be resurrected. Bancroft's request of Kovacs is to solve a murder -- Bancroft's. "Altered Carbon" is based on Richard K. Morgan's cyberpunk noir novel of the same name.`,
+        mediaType: 'TV Series',
+        status: false,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        imageURL: 'https://m.media-amazon.com/images/M/MV5BYWY1MWJjODYtMjk5Yy00OGY3LWFjNjctMjJlMDBiMmI0ODk1XkEyXkFqcGdeQXVyNTAyODkwOQ@@._V1_.jpg',
+        title: 'Serial Experiments Lain',
+        creator: 'Yoshitoshi Abe, Chiaki J. Konaka',
+        description: `An adolescent girl develops a unique connection to a virtual reality network known as The Wired.`,
+        mediaType: 'TV Series',
+        status: false,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        imageURL: 'https://images-na.ssl-images-amazon.com/images/I/91NrsGzBjUL.jpg',
+        title: 'Snow Crash',
+        creator: 'Neal Stephenson',
+        description: `Hiro Protagonist is a hacker and pizza delivery driver for the Mafia. He meets Y.T. (short for Yours Truly), a young skateboard Kourier (courier), who refers to herself in the third person, during a failed attempt to make a delivery on time.`,
+        mediaType: 'Book',
+        status: false,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        imageURL: 'https://images-na.ssl-images-amazon.com/images/I/71O+lxKGSiL.jpg',
+        title: 'Do Androids Dream of Electric Sheep?',
+        creator: 'Philip K. Dick',
+        description: `Do Androids Dream of Electric Sheep? is a dystopian science fiction novel by American writer Philip K. Dick, first published in 1968. The novel is set in a post-apocalyptic San Francisco, where Earth's life has been greatly damaged by a nuclear global war, leaving most animal species endangered or extinct. `,
+        mediaType: 'Book',
+        status: false,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        imageURL: 'https://m.media-amazon.com/images/M/MV5BNzQzOTk3OTAtNDQ0Zi00ZTVkLWI0MTEtMDllZjNkYzNjNTc4L2ltYWdlXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_.jpg',
+        title: 'The Matrix',
+        creator: 'Lana Wachowski, Lilly Wachowski',
+        description: `When a beautiful stranger leads computer hacker Neo to a forbidding underworld, he discovers the shocking truth--the life he knows is the elaborate deception of an evil cyber-intelligence.`,
+        mediaType: 'Movie',
+        status: false,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        imageURL: 'https://images-na.ssl-images-amazon.com/images/I/91s+0nvtVYL.jpg',
+        title: 'Idoru',
+        creator: 'William Gibson',
+        description: `Idoru is the second book in William Gibson's Bridge trilogy. Idoru is a science-fiction novel set in a postmodern, dystopian, cyberpunk future.`,
+        mediaType: 'Book',
+        status: false,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
     ], {});
 
   },
