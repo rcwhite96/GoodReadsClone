@@ -5,9 +5,9 @@ import { getOne } from  '../../store/shelf'
 
 export default function AllShelvesPage(){
     let dispatch = useDispatch()
-    let shelves = useSelector(state => state.shelves)
+    let allShelf = useSelector(state => state.shelves)
 
-    const all = shelves?.map((shelf, index) =>
+    const all = allShelf?.map((shelf, index) =>
     <NavLink key={index} to={`/shelves/${shelf.id}`}>
         <div>{shelf.title}</div>
     </NavLink>)
