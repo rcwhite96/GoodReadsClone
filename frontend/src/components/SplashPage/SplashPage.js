@@ -3,8 +3,13 @@ import{ NavLink } from 'react-router-dom'
 
 export default function SplashPage(){
     return(
-        <NavLink to="/media">
-            <button className="nav-btn">See Media</button>
-        </NavLink>
+        <>
+            <h1>Check Out Cyberpunk Media Today</h1>
+            <div className="btn-div">
+                <NavLink to="/media">
+                    <button className="media-btn">See Media</button>
+                </NavLink>
+            </div>
+        </>
     )
 }

@@ -1,4 +1,6 @@
-/* TODO Add site wide styles */
+@import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
+
+
 body{
     background-color: rgb(59, 45, 59);
 }
@@ -52,4 +54,31 @@ a{
     background-color: rgb(37, 29, 37);
     padding: 10px;
 
+  }
+
+  .media-btn{
+    padding: 5px;
+    margin: 5px;
+    font-family: 'Quicksand', sans-serif;
+    text-decoration: none;
+    background-color: rgb(220, 65, 128) ;
+    color: white;
+    border-radius: 5px;
+    border:none;
+    text-decoration: none;
+  }
+
+  .btn-div{
+      display: flex;
+      justify-content: center;
+  }
+
+  h1{
+    color: rgb(220, 65, 128);
+    font-family: 'Quicksand', sans-serif;
+    font-size: 30px;
+    margin: 30px;
+    padding: 0px;
+    display: flex;
+    justify-content: center;
   }
