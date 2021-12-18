@@ -17,11 +17,6 @@ module.exports = {
         type: Sequelize.INTEGER,
         references:{model: "Users"}
       },
-      mediaId: {
-        allowNull: false,
-        type: Sequelize.INTEGER,
-        references:{model: "Media"}
-      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

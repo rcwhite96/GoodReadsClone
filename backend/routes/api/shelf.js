@@ -53,9 +53,9 @@ const validateShelf = [
       const{title, mediaId} = req.body
       const{user} = req
       if(!user){
-          return next(reviewError('Must be logged in to create a shelf.'))
+          return next(shelfError('Must be logged in to create a shelf.'))
       }
-      const newShelf = await Review.create({userId: user.dataValues.id, title, mediaId})
+      const newShelf = await Shelf.create({userId: user.dataValues.id, title, mediaId})
       return res.json(newShelf)
   }))
 
