@@ -10,18 +10,24 @@ a{
 }
 .nav-btn{
     padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
     margin: 5px;
     font-family: 'Quicksand', sans-serif;
     text-decoration: none;
-    background-color: rgb(220, 65, 128) ;
+    background-color: rgb(220, 65, 128);
     color: white;
     border-radius: 5px;
     border:none;
     text-decoration: none;
-    display: flex;
-    justify-content: flex-end;
-    align-items: flex-end;
+}
 
+.buttons{
+    display: flex;
+}
+
+.home{
+    display: flex;
 }
 
 .nav-btn:hover{
@@ -39,8 +45,8 @@ a{
     border:none;
     text-decoration: none;
     display: flex;
-    justify-content: center;
-    align-items: center;
+
+
 }
 
 .home-btn:hover{
@@ -51,11 +57,13 @@ a{
     list-style-type: none;
     margin: 0;
     padding: 0;
-    background-color: rgb(37, 29, 37);
+    /* background-color: rgb(37, 29, 37); */
     padding: 10px;
 
   }
-
+.bar{
+    background-color: rgb(37, 29, 37);
+}
   .media-btn{
     padding: 5px;
     margin: 5px;
@@ -82,3 +90,12 @@ a{
     display: flex;
     justify-content: center;
   }
+
+.profile-info{
+    color: rgb(207, 155, 255);
+    font-family: 'Quicksand', sans-serif;
+}
+
+.profile-dropdown{
+    background-color: rgb(220, 65, 128)
+}

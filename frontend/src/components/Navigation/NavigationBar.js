@@ -13,6 +13,9 @@ const NavigationBar = ({ isLoaded }) => {
    if (session.user) {
       sessionLinks = (
          <div>
+            <NavLink to="/media">
+               <button className="nav-btn">Media</button>
+            </NavLink>
             <NavLink to="/shelves">
                <button className="nav-btn">Your Shelves</button>
             </NavLink>
@@ -22,22 +25,26 @@ const NavigationBar = ({ isLoaded }) => {
    } else {
       sessionLinks = (
          <div>
-            <NavLink to="/login">
-               <button className="nav-btn">Log In</button>
-            </NavLink>
-            <NavLink to="/signup">
-               <button className="nav-btn">Sign Up</button>
-            </NavLink>
+            <div className="buttons">
+               <NavLink to="/login">
+                  <button className="nav-btn">Log In</button>
+               </NavLink>
+               <NavLink to="/signup">
+                  <button className="nav-btn">Sign Up</button>
+               </NavLink>
+               </div>
          </div>
       )
    }
 
    return (
          <div className="nav-bar">
+            <div className="home">
                <NavLink to='/'>
                   <button className="home-btn">Home</button>
                </NavLink>
                {isLoaded && sessionLinks}
+            </div>
          </div>
    );
 };

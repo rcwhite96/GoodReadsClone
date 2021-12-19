@@ -12,3 +12,11 @@
     width: 20px !important;
 }
 
+
+.buttons{
+    display: flex;
+}
+
+.profile-dropdown{
+    background-color: rgb(220, 65, 128)
+}
