@@ -8,9 +8,10 @@ export default function AllShelvesPage(){
     let allShelf = useSelector(state => state.shelves)
 
     const all = allShelf?.map((shelf, index) =>
-    <NavLink key={index} to={`/shelves/${shelf.id}`}>
-        <div>{shelf.title}</div>
-    </NavLink>)
+        <NavLink key={index} to={`/shelves/${shelf.id}`}>
+            <div>{shelf.title}</div>
+        </NavLink>
+    )
 
     useEffect(() => {
         dispatch(getOne())
