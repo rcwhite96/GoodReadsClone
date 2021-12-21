@@ -57,7 +57,7 @@ a{
     list-style-type: none;
     margin: 0;
     padding: 0;
-    /* background-color: rgb(37, 29, 37); */
+    background-color: rgb(37, 29, 37);
     padding: 10px;
 
   }
@@ -97,5 +97,5 @@ a{
 }
 
 .profile-dropdown{
-    background-color: rgb(220, 65, 128)
+    background-color: rgb(65, 65, 65)
 }

@@ -1,23 +1,18 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from 'react-redux';
-import{ useParams, NavLink } from 'react-router-dom'
+import{ NavLink, useParams} from 'react-router-dom'
 import { getOne } from  '../../store/media'
-import { getReviews } from '../../store/review'
 import './OneMediaPage.css'
 
 export default function OneMediaPage(){
     let dispatch = useDispatch()
     let currentMedia = useSelector(state => state.media.oneMedia)
-    let mediaReviews = useSelector(state => state.reviews)
     const {mediaId} = useParams()
 
     useEffect(() => {
         dispatch(getOne(mediaId))
     }, [dispatch])
 
-    useEffect(() => {
-        dispatch(getReviews(mediaId))
-    }, [dispatch])
 
     return(
         <div className="all-container">
@@ -29,7 +24,9 @@ export default function OneMediaPage(){
                 <div className="info">Description: {currentMedia?.description}</div>
             </div>
             <div>
-                <div>{mediaReviews?.content}</div>
+                <NavLink to={`/media/${mediaId}/add-review`}>
+                <button className="nav-btn">Add Review</button>
+                </NavLink>
             </div>
         </div>
     )

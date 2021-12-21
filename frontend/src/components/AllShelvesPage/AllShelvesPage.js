@@ -18,6 +18,11 @@ export default function AllShelvesPage(){
     },[dispatch])
 
     return (
-        <div>{all}</div>
+        <>
+            <div>{all}</div>
+            <NavLink to="/shelves/add">
+                <button className="nav-btn">Add Shelf</button>
+            </NavLink>
+        </>
     )
 }

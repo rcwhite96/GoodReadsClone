@@ -100,7 +100,7 @@ const shelfReducer = (state = initialState, action) => {
         switch(action.type){
             case GET_SHELVES:
                 newState = {...state}
-                newState.shelves = action.payload
+                newState.shelves = action.payload.shelve
                 return newState
             case GET_ONE_SHELF:
                 newState = {...state}
