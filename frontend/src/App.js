@@ -14,6 +14,8 @@ import OneMediaPage from './components/OneMediaPage/OneMediaPage';
 import CreateReview from './components/ReviewForm/ReviewFormPage'
 import SplashPage from './components/SplashPage/SplashPage';
 import AllShelvesPage from './components/AllShelvesPage/AllShelvesPage';
+import Footer from './components/Footer/Footer';
+import Reviews from './components/Reviews/Reviews';
 
 function App() {
   const dispatch = useDispatch();
@@ -37,6 +39,7 @@ function App() {
           </Route>
           <Route path="/" exact={true}>
             <SplashPage/>
+            <Footer/>
           </Route>
           <Route path="/media" exact={true}>
             <AllMediaPage/>
@@ -44,8 +47,14 @@ function App() {
           <Route path="/media/:mediaId" exact={true}>
             <OneMediaPage/>
           </Route>
-          <Route path='/media/:mediaId/review' exact={true}>
+          <Route path="/media/:mediaId" exact={true}>
+            <Reviews/>
+          </Route>
+          <Route path='/media/:mediaId/add-review' exact={true}>
             <CreateReview/>
+          </Route>
+          <Route path='/shelves' exact={true}>
+            <AllShelvesPage/>
           </Route>
           <Route path='/shelves' exact={true}>
             <AllShelvesPage/>

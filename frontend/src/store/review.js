@@ -36,6 +36,7 @@ export const getReviews = () => async dispatch => {
     const res = await csrfFetch('/api/reviews')
     if(res.ok){
         const data = await res.json()
+        console.log(dispatch(getAllReviews(data)))
         dispatch(getAllReviews(data))
     }
 }
@@ -82,6 +83,7 @@ const reviewReducer = (state = initialState, action) => {
         switch(action.type){
             case GET_REVIEWS:
                 newState = {...state}
+                console.log(action.payload)
                 newState.reviews = action.payload
                 return newState
             case POST_REVIEW:
@@ -96,8 +98,8 @@ const reviewReducer = (state = initialState, action) => {
                 return newState
             case DELETE_REVIEW:
                 newState = {...state}
-                const indexRem = newState.reviews.findIndex(review => review.id === action.payload.id)
-                newState.reviews.splice(indexRem, 1)
+                const indexRemove = newState.reviews.findIndex(review => review.id === action.payload.id)
+                newState.reviews.splice(indexRemove, 1)
                 return newState
             default:
                 return state;
