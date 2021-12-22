@@ -7,7 +7,6 @@ import './OneMediaPage.css'
 export default function OneMediaPage(){
     let dispatch = useDispatch()
     let currentMedia = useSelector(state => state.media.oneMedia)
-    console.log(currentMedia)
     const {mediaId} = useParams()
 
     useEffect(() => {
@@ -18,6 +17,11 @@ export default function OneMediaPage(){
         <div key={index} className="review-div">
             <div className="review-title">{rev.title}</div>
             <div className="review-content">{rev.content}</div>
+            <div>
+                <NavLink to={`/media/${mediaId}/edit-review`} >
+                    <button className="nav-btn">Edit</button>
+                </NavLink>
+            </div>
         </div>
     )
 
@@ -40,7 +44,7 @@ export default function OneMediaPage(){
             </div>
             <div className="review-header">Reviews:</div>
                 <div className="info">
-                    {reviews}
+                    {reviews} 
             </div>
         </>
     )
