@@ -4,7 +4,7 @@ const { restoreUser } = require('../../utils/auth');
 
 const router = express.Router();
 
-const { Media } = require('../../db/models');
+const { Media, Review } = require('../../db/models');
 const { check } = require('express-validator');
 const { handleValidationErrors } = require('../../utils/validation');
 
@@ -18,9 +18,9 @@ router.get('/', asyncHandler(async(req, res) => {
 
 router.get('/:id(\\d+)', asyncHandler(async(req, res) => {
     const {id} = req.params
-    console.log({id})
-    const media = await Media.findByPk(id)
-    console.log(res.json(media))
+    const media = await Media.findByPk(id, {
+        include: [{model: Review}]
+    })
     return res.json(media)
 }))
 

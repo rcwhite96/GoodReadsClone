@@ -67,6 +67,14 @@ module.exports = {
         createdAt: new Date(),
         updatedAt: new Date()
       },
+      {
+        title: 'A good time',
+        content: 'Could play this over and over again!',
+        userId: 2,
+        mediaId: 1,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
 
     ], {});
 

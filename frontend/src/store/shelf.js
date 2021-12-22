@@ -58,11 +58,11 @@ export const getOne = (id) => async dispatch => {
     }
 }
 
-export const addShelf = (title, mediaId) => async dispatch => {
+export const addShelf = (title) => async dispatch => {
     const res = await csrfFetch('/api/shelves', {
         method: 'POST',
         headers: {'Content-Type': 'application/json' },
-        body: JSON.stringify({title, mediaId})
+        body: JSON.stringify({title})
     })
     if(res.ok){
         const shelf = await res.json()

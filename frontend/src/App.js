@@ -16,6 +16,7 @@ import SplashPage from './components/SplashPage/SplashPage';
 import AllShelvesPage from './components/AllShelvesPage/AllShelvesPage';
 import Footer from './components/Footer/Footer';
 import Reviews from './components/Reviews/Reviews';
+import CreateShelf from './components/ShelfForm/ShelfForm';
 
 function App() {
   const dispatch = useDispatch();
@@ -56,8 +57,8 @@ function App() {
           <Route path='/shelves' exact={true}>
             <AllShelvesPage/>
           </Route>
-          <Route path='/shelves' exact={true}>
-            <AllShelvesPage/>
+          <Route path='/shelves/add-shelf' exact={true}>
+            <CreateShelf/>
           </Route>
         </Switch>
       )}

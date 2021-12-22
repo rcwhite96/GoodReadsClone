@@ -1,15 +1,14 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, Redirect } from 'react-router-dom';
-import { addReview } from '../../store/review';
+import { addShelf } from '../../store/shelf';
 
-import './ReviewFormPage.css'
 
-const CreateReview = () => {
+
+const CreateShelf = () => {
     const sessionUser = useSelector((state => state.session.user))
     const dispatch = useDispatch();
     const [title, setTitle] = useState('')
-    const [content, setContent] = useState('')
     const history = useHistory()
     const [errors, setErrors] = useState([])
 
@@ -20,7 +19,7 @@ const CreateReview = () => {
     const handleSubmit = async(e) => {
         e.preventDefault()
         setErrors([])
-        const review = await dispatch(addReview(title, content)).catch(async(res) => {
+        const shelf = await dispatch(addShelf(title)).catch(async(res) => {
             const data = await res.json()
             if (data && data.errors) {
                 const filteredErrors = data.errors.filter(
@@ -29,15 +28,15 @@ const CreateReview = () => {
                 setErrors(filteredErrors)
             }
         })
-        if(review) {
-            return history.push(`/media`)
+        if(shelf) {
+            return history.push(`/shelves`)
         }
     }
 
     return (
         <>
             <form onSubmit={handleSubmit} className="signup-container">
-            <h2>Post a Review</h2>
+            <h2>Add a Shelf</h2>
                 <div className="error-div">
                     <p className="form-errors">
                         {errors.map((error, i) => (
@@ -51,18 +50,12 @@ const CreateReview = () => {
                     onChange ={(e) => setTitle(e.target.value)}
                     value={title}
                     />
-                    <textarea
-                    className="content-input"
-                    placeholder="content"
-                    onChange ={(e) => setContent(e.target.value)}
-                    value={content}
-                    />
                     <button className="nav-btn" type="submit">
-                        Add Review
+                        Add Shelf
                     </button>
             </form>
         </>
     )
 }
 
-export default CreateReview
+export default CreateShelf
