@@ -45,24 +45,31 @@ function App() {
           </Route>
           <Route path="/media" exact={true}>
             <AllMediaPage/>
+            <Footer/>
           </Route>
           <Route path="/media/:mediaId" exact={true}>
             <OneMediaPage/>
+            <Footer/>
           </Route>
           <Route path="/media/:mediaId" exact={true}>
             <Reviews/>
+            <Footer/>
           </Route>
           <Route path='/media/:mediaId/add-review' exact={true}>
             <CreateReview/>
+            <Footer/>
           </Route>
           <Route path='/media/:mediaId/edit-review' exact={true}>
             <EditReviewForm/>
+            <Footer/>
           </Route>
           <Route path='/shelves' exact={true}>
             <AllShelvesPage/>
+            <Footer/>
           </Route>
           <Route path='/shelves/add-shelf' exact={true}>
             <CreateShelf/>
+            <Footer/>
           </Route>
         </Switch>
       )}

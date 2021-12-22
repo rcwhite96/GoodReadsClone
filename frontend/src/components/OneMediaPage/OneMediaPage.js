@@ -23,17 +23,14 @@ export default function OneMediaPage(){
         <div key={index} className="review-div">
             <div className="review-title">{rev.title}</div>
             <div className="review-content">{rev.content}</div>
-            <div>
+            <div className="review-buttons">
                 <NavLink to={`/media/${mediaId}/edit-review`} >
                     <button className="nav-btn">Edit</button>
                 </NavLink>
-            <div>
                 <button onClick={() => handleDelete(reviewId)} className="nav-btn">Delete</button>
-            </div>
             </div>
         </div>
     )
-
 
     return(
         <>
@@ -46,12 +43,12 @@ export default function OneMediaPage(){
                     <div className="info">Description: {currentMedia?.description}</div>
                 </div>
             </div>
-            <div>
+            <div className="review-header">Reviews:</div>
+            <div className="add-rev-container">
                 <NavLink to={`/media/${mediaId}/add-review`}>
                     <button className="nav-btn">Add Review</button>
                 </NavLink>
             </div>
-            <div className="review-header">Reviews:</div>
                 <div className="info">
                     {reviews}
             </div>
