@@ -1,7 +1,7 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from 'react-redux';
-import{ NavLink, useParams, Redirect} from 'react-router-dom'
-import { putReview } from  '../../store/review'
+import{ useParams, Redirect, useHistory} from 'react-router-dom'
+import { putReview, getReviews } from  '../../store/review'
 
 export default function EditReviewForm(){
     const {reviewId} = useParams()
@@ -9,19 +9,19 @@ export default function EditReviewForm(){
     const review = useSelector((state => state.review[reviewId]))
 
     const [title, setTitle] = useState('');
-    const [content, setConent] = useState('')
+    const [content, setContent] = useState('')
     const dispatch = useDispatch();
     const history = useHistory();
     const [errors, setErrors] = useState([]);
 
     useEffect(() => {
         if(!review){
-            dispatch(getNotes())
+            dispatch(getReviews())
         } else {
-            setTitle(notes.title)
+            setTitle(review.title)
             setContent(review.content)
         }
-    }, [dispatch, review, reviewId])
+    }, [dispatch, review, reviewId, title])
 
 
     if (!sessionUser) {
@@ -31,7 +31,7 @@ export default function EditReviewForm(){
     const handleSubmit = async (e) => {
       e.preventDefault()
       setErrors([])
-      const review = await dispatch(editNote(reviewId, title, content)).catch(async (res) => {
+      const review = await dispatch(putReview(reviewId, title, content)).catch(async (res) => {
           const data = await res.json()
           if (data && data.errors) {
               const filteredErrors = data.errors.filter(
@@ -41,7 +41,7 @@ export default function EditReviewForm(){
             }
       })
       if(review) {
-          return history.push(`/review/${id}`)
+          return history.push(`/media`)
       }
     }
 

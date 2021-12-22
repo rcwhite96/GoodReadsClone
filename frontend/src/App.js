@@ -17,6 +17,7 @@ import AllShelvesPage from './components/AllShelvesPage/AllShelvesPage';
 import Footer from './components/Footer/Footer';
 import Reviews from './components/Reviews/Reviews';
 import CreateShelf from './components/ShelfForm/ShelfForm';
+import EditReviewForm from './components/EditReviewForm/EditReviewForm';
 
 function App() {
   const dispatch = useDispatch();
@@ -53,6 +54,9 @@ function App() {
           </Route>
           <Route path='/media/:mediaId/add-review' exact={true}>
             <CreateReview/>
+          </Route>
+          <Route path='/media/:mediaId/edit-review' exact={true}>
+            <EditReviewForm/>
           </Route>
           <Route path='/shelves' exact={true}>
             <AllShelvesPage/>

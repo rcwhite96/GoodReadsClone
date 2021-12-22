@@ -2,16 +2,22 @@ import React, { useEffect } from "react";
 import { useSelector, useDispatch } from 'react-redux';
 import{ NavLink, useParams} from 'react-router-dom'
 import { getOne } from  '../../store/media'
+import {removeReview} from '../../store/review'
 import './OneMediaPage.css'
 
 export default function OneMediaPage(){
     let dispatch = useDispatch()
     let currentMedia = useSelector(state => state.media.oneMedia)
     const {mediaId} = useParams()
+    const {reviewId} = useParams()
 
     useEffect(() => {
         dispatch(getOne(mediaId))
     }, [dispatch])
+
+    const handleDelete = (id) => {
+        dispatch(removeReview(id))
+    }
 
     const reviews = currentMedia?.Reviews.map((rev, index) =>
         <div key={index} className="review-div">
@@ -21,6 +27,9 @@ export default function OneMediaPage(){
                 <NavLink to={`/media/${mediaId}/edit-review`} >
                     <button className="nav-btn">Edit</button>
                 </NavLink>
+            <div>
+                <button onClick={() => handleDelete(reviewId)} className="nav-btn">Delete</button>
+            </div>
             </div>
         </div>
     )
@@ -44,7 +53,7 @@ export default function OneMediaPage(){
             </div>
             <div className="review-header">Reviews:</div>
                 <div className="info">
-                    {reviews} 
+                    {reviews}
             </div>
         </>
     )
