@@ -4,14 +4,13 @@ const { restoreUser } = require('../../utils/auth');
 
 const router = express.Router();
 
-const { Media, Review } = require('../../db/models');
+const { Media, Review, User } = require('../../db/models');
 const { check } = require('express-validator');
 const { handleValidationErrors } = require('../../utils/validation');
 
 
 router.get('/', asyncHandler(async(req, res) => {
     const media = await Media.findAll()
-    // console.log(res.json(media))
     return res.json(media)
 }))
 
