@@ -17,15 +17,15 @@ const reviewError = (message) => {
   };
 
 
-  router.get('/:id(\\d+)', asyncHandler(async(req, res) => {
-    const mediaId = req.params.id
-      const reviews = await Review.findAll({
-        where:{
-          id : mediaId
-        },
-      })
-      res.json(reviews)
-  }))
+  // router.get('/:id(\\d+)', asyncHandler(async(req, res) => {
+  //   const mediaId = req.params.id
+  //     const reviews = await Review.findAll({
+  //       where:{
+  //         id : mediaId
+  //       },
+  //     })
+  //     res.json(reviews)
+  // }))
 
 
   const validateReview = [

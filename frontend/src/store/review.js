@@ -36,7 +36,6 @@ export const getReviews = () => async dispatch => {
     const res = await csrfFetch('/api/reviews')
     if(res.ok){
         const data = await res.json()
-        console.log(dispatch(getAllReviews(data)))
         dispatch(getAllReviews(data))
     }
 }
@@ -83,7 +82,6 @@ const reviewReducer = (state = initialState, action) => {
         switch(action.type){
             case GET_REVIEWS:
                 newState = {...state}
-                console.log(action.payload)
                 newState.reviews = action.payload
                 return newState
             case POST_REVIEW:

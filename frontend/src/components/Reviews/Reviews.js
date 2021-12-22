@@ -10,7 +10,6 @@ export default function Reviews(){
     const allReviews = reviews.map((review, index) =>
         <>
             <div>{review.title}</div>
-            <div>{review.title}</div>
         </>
     )
 
