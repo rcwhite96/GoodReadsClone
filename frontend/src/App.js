@@ -17,6 +17,7 @@ import AllShelvesPage from './components/AllShelvesPage/AllShelvesPage';
 import Footer from './components/Footer/Footer';
 import CreateShelf from './components/ShelfForm/ShelfForm';
 import EditReviewForm from './components/EditReviewForm/EditReviewForm';
+import OneShelfPage from './components/OneShelfPage/OneShelfPage';
 
 function App() {
   const dispatch = useDispatch();
@@ -64,6 +65,10 @@ function App() {
           </Route>
           <Route path='/shelves/add-shelf' exact={true}>
             <CreateShelf/>
+            <Footer/>
+          </Route>
+          <Route path='/shelves/:shelfId' exact={true}>
+            <OneShelfPage/>
             <Footer/>
           </Route>
         </Switch>

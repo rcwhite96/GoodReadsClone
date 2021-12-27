@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useHistory, Redirect } from 'react-router-dom';
+import { useHistory, Redirect, useParams } from 'react-router-dom';
 import { addShelf } from '../../store/shelf';
 
 
@@ -11,6 +11,7 @@ const CreateShelf = () => {
     const [title, setTitle] = useState('')
     const history = useHistory()
     const [errors, setErrors] = useState([])
+    const {shelfId} = useParams()
 
     if (!sessionUser) {
         return <Redirect to="/login" />;
@@ -19,7 +20,7 @@ const CreateShelf = () => {
     const handleSubmit = async(e) => {
         e.preventDefault()
         setErrors([])
-        const shelf = await dispatch(addShelf(title)).catch(async(res) => {
+        const shelf = await dispatch(addShelf(title, shelfId)).catch(async(res) => {
             const data = await res.json()
             if (data && data.errors) {
                 const filteredErrors = data.errors.filter(
