@@ -7,6 +7,7 @@ const router = express.Router();
 const { Review } = require('../../db/models');
 const { check } = require('express-validator');
 const { handleValidationErrors } = require('../../utils/validation');
+// const media = require('../../db/models/media');
 
 const reviewError = (message) => {
     const err = new Error(message);
@@ -15,17 +16,6 @@ const reviewError = (message) => {
     err.errors = [message];
     return err;
   };
-
-
-  // router.get('/:id(\\d+)', asyncHandler(async(req, res) => {
-  //   const mediaId = req.params.id
-  //     const reviews = await Review.findAll({
-  //       where:{
-  //         id : mediaId
-  //       },
-  //     })
-  //     res.json(reviews)
-  // }))
 
 
   const validateReview = [
@@ -39,9 +29,10 @@ const reviewError = (message) => {
   ];
 
 
-  router.post('/reviews', restoreUser, validateReview, asyncHandler(async(req, res, next) => {
+  router.post('/', restoreUser, validateReview, asyncHandler(async(req, res, next) => {
       const{title, content, mediaId} = req.body
       const{user} = req
+
       if(!user){
           return next(reviewError('Must be logged in to post a review.'))
       }

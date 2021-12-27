@@ -40,17 +40,16 @@ export const getReviews = () => async dispatch => {
     }
 }
 
-export const addReview = (id, title, content, mediaId) => async dispatch => {
-    const res = await csrfFetch(`/api/reviews/${id}`, {
+export const addReview = (title, content, mediaId) => async dispatch => {
+    const res = await csrfFetch(`/api/reviews/`, {
         method: 'POST',
         headers: {'Content-Type': 'application/json' },
         body: JSON.stringify({title, content, mediaId})
     })
-    console.log(res + "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA")
+    // console.log(mediaId + 'MEDIA ID!!!!!!!!!!!!!!!!!!!')
     if(res.ok){
         const review = await res.json()
         dispatch(postReview(review))
-        console.log(review + "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA")
         return review
     }
 }
@@ -59,7 +58,7 @@ export const putReview = (id, title, content, mediaId) => async dispatch => {
     const res = await csrfFetch(`/api/reviews/${id}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({title, content, mediaId})
+        body: JSON.stringify({id, title, content, mediaId})
     })
     if(res.ok){
         const review = await res.json()
@@ -95,7 +94,6 @@ const reviewReducer = (state = initialState, action) => {
                 const index = newState.reviews.findIndex(review => review.id === action.payload.id)
                 newState.reviews[index] = action.payload
                 newState.currentReview = action.payload
-                console.log(newState + "AAAAAAAAAAAA")
                 return newState
             case DELETE_REVIEW:
                 newState = {...state}

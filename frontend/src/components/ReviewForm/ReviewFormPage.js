@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useHistory, Redirect } from 'react-router-dom';
+import { useHistory, Redirect, useParams } from 'react-router-dom';
 import { addReview } from '../../store/review';
 
 import './ReviewFormPage.css'
@@ -12,6 +12,8 @@ const CreateReview = () => {
     const [content, setContent] = useState('')
     const history = useHistory()
     const [errors, setErrors] = useState([])
+    const {mediaId} = useParams()
+    
 
     if (!sessionUser) {
         return <Redirect to="/login" />;
@@ -20,7 +22,7 @@ const CreateReview = () => {
     const handleSubmit = async(e) => {
         e.preventDefault()
         setErrors([])
-        const review = await dispatch(addReview(title, content)).catch(async(res) => {
+        const review = await dispatch(addReview(title, content, mediaId)).catch(async(res) => {
             const data = await res.json()
             if (data && data.errors) {
                 const filteredErrors = data.errors.filter(
@@ -30,7 +32,7 @@ const CreateReview = () => {
             }
         })
         if(review) {
-            return history.push(`/media`)
+            return history.push(`/media/${mediaId}`)
         }
     }
 
