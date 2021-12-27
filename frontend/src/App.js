@@ -18,6 +18,7 @@ import Footer from './components/Footer/Footer';
 import CreateShelf from './components/ShelfForm/ShelfForm';
 import EditReviewForm from './components/EditReviewForm/EditReviewForm';
 import OneShelfPage from './components/OneShelfPage/OneShelfPage';
+import EditShelfForm from './components/EditShelfForm/EditShelfForm'
 
 function App() {
   const dispatch = useDispatch();
@@ -69,6 +70,10 @@ function App() {
           </Route>
           <Route path='/shelves/:shelfId' exact={true}>
             <OneShelfPage/>
+            <Footer/>
+          </Route>
+          <Route path='/shelves/:shelfId/edit-shelf' exact={true}>
+            <EditShelfForm/>
             <Footer/>
           </Route>
         </Switch>

@@ -30,7 +30,7 @@ export default function OneShelfPage(){
                 </div>
             </div>
             <div>
-                <NavLink to={`/shelf/${shelfId}/edit-shelf`} >
+                <NavLink to={`/shelves/${shelfId}/edit-shelf`} >
                     <button className="nav-btn">Edit</button>
                 </NavLink>
                 <button onClick={() => handleDelete(shelfId)} className="nav-btn">Delete</button>
