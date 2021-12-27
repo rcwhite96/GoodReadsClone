@@ -32,7 +32,7 @@ const ProfileButton = ({user}) => {
 
 
    return (
-      <div>
+      <>
          <button onClick={openMenu} className="nav-btn">
             <i className="far fa-user" />
          </button>
@@ -45,7 +45,7 @@ const ProfileButton = ({user}) => {
                </div>
             </div>
          )}
-      </div>
+      </>
    );
 };
 
