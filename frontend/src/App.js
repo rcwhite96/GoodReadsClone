@@ -15,7 +15,6 @@ import CreateReview from './components/ReviewForm/ReviewFormPage'
 import SplashPage from './components/SplashPage/SplashPage';
 import AllShelvesPage from './components/AllShelvesPage/AllShelvesPage';
 import Footer from './components/Footer/Footer';
-import Reviews from './components/Reviews/Reviews';
 import CreateShelf from './components/ShelfForm/ShelfForm';
 import EditReviewForm from './components/EditReviewForm/EditReviewForm';
 
@@ -49,10 +48,6 @@ function App() {
           </Route>
           <Route path="/media/:mediaId" exact={true}>
             <OneMediaPage/>
-            <Footer/>
-          </Route>
-          <Route path="/media/:mediaId" exact={true}>
-            <Reviews/>
             <Footer/>
           </Route>
           <Route path='/media/:mediaId/add-review' exact={true}>

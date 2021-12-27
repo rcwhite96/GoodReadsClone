@@ -32,6 +32,7 @@ export default function OneMediaPage(){
         </div>
     )
 
+
     return(
         <>
             <div className="all-container">
