@@ -50,12 +50,12 @@ const validateShelf = [
 
 
   router.post('/', restoreUser, validateShelf, asyncHandler(async(req, res, next) => {
-      const{title, mediaId} = req.body
+      const{title} = req.body
       const{user} = req
       if(!user){
           return next(shelfError('Must be logged in to create a shelf.'))
       }
-      const newShelf = await Shelf.create({userId: user.dataValues.id, title, mediaId})
+      const newShelf = await Shelf.create({userId: user.dataValues.id, title})
       return res.json(newShelf)
   }))
 

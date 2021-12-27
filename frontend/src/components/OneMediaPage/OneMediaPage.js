@@ -24,7 +24,7 @@ export default function OneMediaPage(){
             <div className="review-title">{rev.title}</div>
             <div className="review-content">{rev.content}</div>
             <div className="review-buttons">
-                <NavLink to={`/media/${mediaId}/edit-review`} >
+                <NavLink to={`/media/${mediaId}/edit-review/${reviewId}`} >
                     <button className="nav-btn">Edit</button>
                 </NavLink>
                 <button onClick={() => handleDelete(reviewId)} className="nav-btn">Delete</button>

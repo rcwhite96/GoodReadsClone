@@ -54,7 +54,7 @@ function App() {
             <CreateReview/>
             <Footer/>
           </Route>
-          <Route path='/media/:mediaId/edit-review' exact={true}>
+          <Route path='/media/:mediaId/edit-review/:reviewId' exact={true}>
             <EditReviewForm/>
             <Footer/>
           </Route>
