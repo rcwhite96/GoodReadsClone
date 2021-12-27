@@ -1,29 +1,27 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from 'react-redux';
 import{ useParams, Redirect, useHistory} from 'react-router-dom'
-import { putReview, getReviews } from  '../../store/review'
+import { putShelf, getShelves } from  '../../store/shelf'
 
 
-export default function EditReviewForm(){
-    const {reviewId} = useParams()
-    const {mediaId} = useParams()
+export default function EditShelfForm(){
+    const {shelfId} = useParams()
+
     const sessionUser = useSelector((state => state.session.user))
-    const review = useSelector((state => state.review[reviewId]))
+    const shelf = useSelector((state => state.shelves))
 
     const [title, setTitle] = useState('');
-    const [content, setContent] = useState('')
     const dispatch = useDispatch();
     const history = useHistory();
     const [errors, setErrors] = useState([]);
 
     useEffect(() => {
-        if(!review){
-            dispatch(getReviews())
+        if(!shelf){
+            dispatch(getShelves())
         } else {
-            setTitle(review.title)
-            setContent(review.content)
+            setTitle(shelf.title)
         }
-    }, [dispatch, review, reviewId, mediaId, title, content])
+    }, [dispatch, shelfId, title, shelf])
 
 
     if (!sessionUser) {
@@ -33,7 +31,7 @@ export default function EditReviewForm(){
     const handleSubmit = async (e) => {
       e.preventDefault()
       setErrors([])
-      const review = await dispatch(putReview(reviewId, mediaId, title, content)).catch(async (res) => {
+      const review = await dispatch(putShelf(shelfId, title)).catch(async (res) => {
           const data = await res.json()
           if (data && data.errors) {
               const filteredErrors = data.errors.filter(
@@ -43,7 +41,7 @@ export default function EditReviewForm(){
             }
       })
       if(review) {
-          return history.push(`/media`)
+          return history.push(`/shelves/${shelfId}`)
       }
     }
 
@@ -63,12 +61,6 @@ export default function EditReviewForm(){
                     placeholder="title"
                     onChange ={(e) => setTitle(e.target.value)}
                     value={title}
-                    />
-                    <textarea
-                    className="content-input"
-                    placeholder="content"
-                    onChange ={(e) => setContent(e.target.value)}
-                    value={content}
                     />
                     <button className="nav-btn" type="submit">
                         Confirm Edit
