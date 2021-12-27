@@ -46,6 +46,7 @@ export const getShelves = () => async dispatch => {
     if(res.ok){
         const data = await res.json()
         dispatch(getAllShelves(data))
+        console.log(data)
     }
 }
 
@@ -100,7 +101,8 @@ const shelfReducer = (state = initialState, action) => {
         switch(action.type){
             case GET_SHELVES:
                 newState = {...state}
-                newState.shelves = action.payload.shelve
+                newState.shelves = action.payload.shelves
+                console.log(newState.shelves)
                 return newState
             case GET_ONE_SHELF:
                 newState = {...state}
@@ -109,6 +111,7 @@ const shelfReducer = (state = initialState, action) => {
             case POST_SHELF:
                 newState = {...state}
                 newState.shelves.push(action.payload)
+                console.log(newState.shelves.push)
                 return newState
             case EDIT_SHELF:
                 newState = {...state}
