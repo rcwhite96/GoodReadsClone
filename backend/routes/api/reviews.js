@@ -39,7 +39,7 @@ const reviewError = (message) => {
   ];
 
 
-  router.post('/:id(\\d+)', restoreUser, validateReview, asyncHandler(async(req, res, next) => {
+  router.post('/reviews', restoreUser, validateReview, asyncHandler(async(req, res, next) => {
       const{title, content, mediaId} = req.body
       const{user} = req
       if(!user){

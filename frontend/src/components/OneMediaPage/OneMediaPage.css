@@ -22,6 +22,7 @@
 .single-title{
     color: rgb(220, 65, 128);
     font-family: 'Quicksand', sans-serif;
+    font-weight: 700;
     font-size: 25px;
     margin: 30px;
     padding: 0px;
@@ -53,7 +54,7 @@
     margin-bottom: 10px;
     margin-top: 20px;
     font-size: 25px;
-    margin-left: 22%;
+    margin-left: 24%;
 
 }
 

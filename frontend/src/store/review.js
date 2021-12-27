@@ -46,9 +46,11 @@ export const addReview = (id, title, content, mediaId) => async dispatch => {
         headers: {'Content-Type': 'application/json' },
         body: JSON.stringify({title, content, mediaId})
     })
+    console.log(res + "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA")
     if(res.ok){
         const review = await res.json()
         dispatch(postReview(review))
+        console.log(review + "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA")
         return review
     }
 }
@@ -93,6 +95,7 @@ const reviewReducer = (state = initialState, action) => {
                 const index = newState.reviews.findIndex(review => review.id === action.payload.id)
                 newState.reviews[index] = action.payload
                 newState.currentReview = action.payload
+                console.log(newState + "AAAAAAAAAAAA")
                 return newState
             case DELETE_REVIEW:
                 newState = {...state}
