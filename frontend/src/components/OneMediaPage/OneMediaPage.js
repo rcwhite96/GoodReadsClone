@@ -9,7 +9,6 @@ export default function OneMediaPage(){
     let dispatch = useDispatch()
     let currentMedia = useSelector(state => state.media.oneMedia)
     const {mediaId} = useParams()
-    const {reviewId} = useParams()
 
     useEffect(() => {
         dispatch(getOne(mediaId))
@@ -24,10 +23,10 @@ export default function OneMediaPage(){
             <div className="review-title">{rev.title}</div>
             <div className="review-content">{rev.content}</div>
             <div className="review-buttons">
-                <NavLink to={`/media/${mediaId}/edit-review/${reviewId}`} >
+                <NavLink to={`/media/${mediaId}/edit-review/${rev.id}`} >
                     <button className="nav-btn">Edit</button>
                 </NavLink>
-                <button onClick={() => handleDelete(reviewId)} className="nav-btn">Delete</button>
+                <button onClick={() => handleDelete(rev.id)} className="nav-btn">Delete</button>
             </div>
         </div>
     )
@@ -42,6 +41,11 @@ export default function OneMediaPage(){
                     <div className="info">Creator: {currentMedia?.creator}</div>
                     <div className="info">Media Type: {currentMedia?.mediaType}</div>
                     <div className="info">Description: {currentMedia?.description}</div>
+                    <div className="shelf-btn">
+                        <NavLink to={`/media/${mediaId}/add-to-shelf`}>
+                            <button className="nav-btn">Add to Shelf</button>
+                        </NavLink>
+                    </div>
                 </div>
             </div>
             <div className="review-header">Reviews:</div>

@@ -48,6 +48,7 @@ const reviewError = (message) => {
           return next(reviewError('Must be logged in to edit a review.'))
       }
       const review = {userId: user.dataValues.id, title, content, mediaId}
+      console.log(review)
       await reviewUpdate.update(review)
       return res.json(reviewUpdate)
   }))

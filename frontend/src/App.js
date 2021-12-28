@@ -19,6 +19,7 @@ import CreateShelf from './components/ShelfForm/ShelfForm';
 import EditReviewForm from './components/EditReviewForm/EditReviewForm';
 import OneShelfPage from './components/OneShelfPage/OneShelfPage';
 import EditShelfForm from './components/EditShelfForm/EditShelfForm'
+import AddToShelfForm from './components/AddToShelfPage/AddToShelfForm'
 
 function App() {
   const dispatch = useDispatch();
@@ -74,6 +75,10 @@ function App() {
           </Route>
           <Route path='/shelves/:shelfId/edit-shelf' exact={true}>
             <EditShelfForm/>
+            <Footer/>
+          </Route>
+          <Route path='/media/:mediaId/add-to-shelf' exact={true}>
+            <AddToShelfForm/>
             <Footer/>
           </Route>
         </Switch>
