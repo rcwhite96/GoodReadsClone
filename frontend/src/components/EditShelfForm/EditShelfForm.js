@@ -31,7 +31,7 @@ export default function EditShelfForm(){
     const handleSubmit = async (e) => {
       e.preventDefault()
       setErrors([])
-      const review = await dispatch(putShelf(shelfId, title)).catch(async (res) => {
+      const shelf = await dispatch(putShelf(shelfId, title)).catch(async (res) => {
           const data = await res.json()
           if (data && data.errors) {
               const filteredErrors = data.errors.filter(
@@ -40,7 +40,7 @@ export default function EditShelfForm(){
               setErrors(filteredErrors);
             }
       })
-      if(review) {
+      if(shelf) {
           return history.push(`/shelves/${shelfId}`)
       }
     }
