@@ -31,9 +31,9 @@ const reviewError = (message) => {
 
   router.get('/:id(\\d+)', asyncHandler(async(req, res, next) => {
     const {user} = req
-      if(!user){
-          return next(reviewError('Must be logged in to edit/delete your reviews.'))
-      }
+    if(!user){
+        return next(reviewError('Must be logged in to edit/delete your reviews.'))
+    }
     const review = await Review.findByPk(req.params.id)
     return res.json(review)
   }))

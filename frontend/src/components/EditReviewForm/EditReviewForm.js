@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from 'react-redux';
 import{ useParams, Redirect, useHistory} from 'react-router-dom'
-import { putReview, getReviews } from  '../../store/review'
+import { putReview, oneReview } from  '../../store/review'
 
 
 export default function EditReviewForm(){
@@ -18,7 +18,7 @@ export default function EditReviewForm(){
 
     useEffect(() => {
         if(!review){
-            dispatch(getReviews())
+            dispatch(oneReview(reviewId))
         } else {
             setTitle(review.title)
             setContent(review.content)
