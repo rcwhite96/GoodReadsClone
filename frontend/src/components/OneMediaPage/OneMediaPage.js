@@ -16,17 +16,17 @@ export default function OneMediaPage(){
         dispatch(getOne(mediaId))
     }, [dispatch])
 
-    const handleDelete = (id) => {
-        dispatch(removeReview(id))
-    }
 
     const reviews = currentMedia?.Reviews.map((rev, index) =>
         <div key={index} className="review-div">
+            {(sessionUser) ?
                 <Reviews title={rev.title}
                      content={rev.content}
                 />
+            : null }
         </div>
     )
+
 
 
     return(
