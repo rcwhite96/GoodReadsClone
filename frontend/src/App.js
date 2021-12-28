@@ -52,7 +52,6 @@ function App() {
           </Route>
           <Route path="/media/:mediaId" exact={true}>
             <OneMediaPage/>
-            <Reviews/>
             <Footer/>
           </Route>
           <Route path='/media/:mediaId/add-review' exact={true}>
