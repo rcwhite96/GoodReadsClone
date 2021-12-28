@@ -16,14 +16,16 @@ export default function OneMediaPage(){
         dispatch(getOne(mediaId))
     }, [dispatch])
 
-
     const reviews = currentMedia?.Reviews.map((rev, index) =>
         <div key={index} className="review-div">
-            {(sessionUser) ?
+            {
                 <Reviews title={rev.title}
                      content={rev.content}
+                     sessionUser={sessionUser}
+                     revSessionUser={rev.userId}
                 />
-            : null }
+            }
+
         </div>
     )
 

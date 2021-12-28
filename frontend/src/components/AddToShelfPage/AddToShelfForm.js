@@ -50,6 +50,11 @@ export default function AddToShelfForm(){
                         ))}
                     </p>
                 </div>
+                {/* {const shelfList = allShelf?.map((shelf, index) =>
+                <select key={index} onChange={(e) => setOption(e.target.value)} value={option}>
+                    <option value={shelf.title}>{shelf.title}</option>
+                </select>
+                )} */}
                 <div>{shelfList}</div>
                     <button className="nav-btn" type="submit">
                         Add
