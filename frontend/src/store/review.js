@@ -1,6 +1,7 @@
 const {csrfFetch} = require('./csrf')
 
 const GET_REVIEWS = 'review/getAllReviews'
+const GET_ONE_REVIEW ='review/getOneReview'
 const POST_REVIEW = 'review/postReview'
 const EDIT_REVIEW = 'review/editReview'
 const DELETE_REVIEW = 'review/deleteReview'
@@ -8,6 +9,13 @@ const DELETE_REVIEW = 'review/deleteReview'
 const getAllReviews = payload => {
     return{
         type: GET_REVIEWS,
+        payload
+    }
+}
+
+const getOneReview = payload => {
+    return{
+        type: GET_ONE_REVIEW,
         payload
     }
 }
@@ -37,6 +45,15 @@ export const getReviews = () => async dispatch => {
     if(res.ok){
         const data = await res.json()
         dispatch(getAllReviews(data))
+    }
+}
+
+export const oneReview = (id) => async dispatch => {
+    const res = await csrfFetch(`/api/reviews/${id}`)
+    if(res.ok){
+        const data = await res.json()
+        dispatch(getOneReview(data))
+        return data
     }
 }
 
@@ -84,6 +101,10 @@ const reviewReducer = (state = initialState, action) => {
             case GET_REVIEWS:
                 newState = {...state}
                 newState.reviews = action.payload
+                return newState
+            case GET_ONE_REVIEW:
+                newState = {...state}
+                newState.oneReview = action.payload
                 return newState
             case POST_REVIEW:
                 newState = {...state}
