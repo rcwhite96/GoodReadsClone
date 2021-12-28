@@ -63,7 +63,6 @@ export const addReview = (title, content, mediaId) => async dispatch => {
         headers: {'Content-Type': 'application/json' },
         body: JSON.stringify({title, content, mediaId})
     })
-    // console.log(mediaId + 'MEDIA ID!!!!!!!!!!!!!!!!!!!')
     if(res.ok){
         const review = await res.json()
         dispatch(postReview(review))

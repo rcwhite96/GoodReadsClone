@@ -23,9 +23,11 @@ export default function AllShelvesPage(){
     return (
         <>
             <div >{shelfList}</div>
-            <NavLink to="/shelves/add-shelf">
-                <button className="nav-btn">Add Shelf</button>
-            </NavLink>
+            <div className="btn-container">
+                <NavLink to="/shelves/add-shelf">
+                    <button className="nav-btn">Add Shelf</button>
+                </NavLink>
+            </div>
         </>
     )
 }

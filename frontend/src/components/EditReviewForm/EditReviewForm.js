@@ -7,6 +7,7 @@ import { putReview, oneReview } from  '../../store/review'
 export default function EditReviewForm(){
     const {reviewId} = useParams()
     const {mediaId} = useParams()
+
     const sessionUser = useSelector((state => state.session.user))
     const review = useSelector((state => state.review[reviewId]))
 
@@ -23,7 +24,7 @@ export default function EditReviewForm(){
             setTitle(review.title)
             setContent(review.content)
         }
-    }, [dispatch, review, reviewId, mediaId, title, content])
+    }, [dispatch, review, reviewId, title, content])
 
 
     if (!sessionUser) {
@@ -33,7 +34,7 @@ export default function EditReviewForm(){
     const handleSubmit = async (e) => {
       e.preventDefault()
       setErrors([])
-      const review = await dispatch(putReview(reviewId, mediaId, title, content)).catch(async (res) => {
+      const review = await dispatch(putReview(reviewId, title, content)).catch(async (res) => {
           const data = await res.json()
           if (data && data.errors) {
               const filteredErrors = data.errors.filter(
@@ -43,7 +44,7 @@ export default function EditReviewForm(){
             }
       })
       if(review) {
-          return history.push(`/media`)
+          return history.push(`/media/${mediaId}`)
       }
     }
 

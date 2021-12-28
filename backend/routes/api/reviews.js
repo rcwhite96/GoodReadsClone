@@ -30,10 +30,6 @@ const reviewError = (message) => {
   ];
 
   router.get('/:id(\\d+)', asyncHandler(async(req, res, next) => {
-    const {user} = req
-    if(!user){
-        return next(reviewError('Must be logged in to edit/delete your reviews.'))
-    }
     const review = await Review.findByPk(req.params.id)
     return res.json(review)
   }))
@@ -51,12 +47,12 @@ const reviewError = (message) => {
 
   router.put('/:id(\\d+)', restoreUser, validateReview, asyncHandler(async(req, res, next) => {
     const reviewUpdate = await Review.findByPk(req.params.id);
-    const {title, content, mediaId} = req.body
+    const {title, content} = req.body
     const{user} = req
       if(!user){
           return next(reviewError('Must be logged in to edit a review.'))
       }
-      const review = {userId: user.dataValues.id, title, content, mediaId}
+      const review = {userId: user.dataValues.id, title, content}
       console.log(review)
       await reviewUpdate.update(review)
       return res.json(reviewUpdate)
