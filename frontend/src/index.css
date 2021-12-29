@@ -9,6 +9,11 @@ a{
     text-decoration: none;
 }
 
+.form-errors{
+    font-family: 'Quicksand', sans-serif;
+    color: rgb(207, 155, 255);
+
+}
 
 .nav-btn{
     padding: 5px;
@@ -100,4 +105,12 @@ a{
     background-color: rgb(59, 45, 59);
     padding: 5px;
     border-radius: 5px;
+}
+
+.select{
+    width: 100px;
+}
+
+.option{
+    width: 100px;
 }
