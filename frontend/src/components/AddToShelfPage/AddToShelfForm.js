@@ -12,6 +12,10 @@ export default function AddToShelfForm(){
     const allShelf = useSelector((state => state.shelves))
     const dispatch = useDispatch();
 
+    useEffect(() => {
+        dispatch(getShelves())
+    }, [dispatch])
+
     if (!sessionUser) {
         return <Redirect to="/login" />;
     }
