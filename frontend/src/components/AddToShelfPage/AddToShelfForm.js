@@ -6,7 +6,7 @@ import { getShelves } from  '../../store/shelf'
 export default function AddToShelfForm(){
     const {shelfId} = useParams()
     const sessionUser = useSelector((state => state.session.user))
-    const [option, setOption] = useState([0])
+    const [option, setOption] = useState([])
     const [errors, setErrors] = useState([])
     const history = useHistory()
     const allShelf = useSelector((state => state.shelves))
@@ -15,12 +15,6 @@ export default function AddToShelfForm(){
     if (!sessionUser) {
         return <Redirect to="/login" />;
     }
-
-    const shelfList = allShelf?.map((shelf, index) =>
-        <select key={index} onChange={(e) => setOption(e.target.value)} value={option}>
-            <option value={shelf.title}>{shelf.title}</option>
-        </select>
-    )
 
     const handleSubmit = async (e) => {
         e.preventDefault()
@@ -50,12 +44,11 @@ export default function AddToShelfForm(){
                         ))}
                     </p>
                 </div>
-                {/* {const shelfList = allShelf?.map((shelf, index) =>
-                <select key={index} onChange={(e) => setOption(e.target.value)} value={option}>
-                    <option value={shelf.title}>{shelf.title}</option>
+                <select name="option" value={option} onChange={(e) => setOption(e.target.value)}>
+                {allShelf?.map((shelf) =>
+                    <option key={shelf.id}>{shelf.title}</option>
+                    )}
                 </select>
-                )} */}
-                <div>{shelfList}</div>
                     <button className="nav-btn" type="submit">
                         Add
                     </button>

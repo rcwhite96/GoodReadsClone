@@ -2,7 +2,6 @@ import React, { useEffect } from "react";
 import { useSelector, useDispatch } from 'react-redux';
 import{ NavLink, useParams} from 'react-router-dom'
 import { getOne } from  '../../store/media'
-import {removeReview} from '../../store/review'
 import Reviews from '../Reviews/Reviews'
 import './OneMediaPage.css'
 

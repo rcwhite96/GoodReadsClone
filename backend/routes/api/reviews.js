@@ -29,6 +29,11 @@ const reviewError = (message) => {
     handleValidationErrors,
   ];
 
+  router.get('/', asyncHandler(async(req, res) => {
+    const reviews = await Review.findAll()
+    return res.json(reviews)
+}))
+
   router.get('/:id(\\d+)', asyncHandler(async(req, res, next) => {
     const review = await Review.findByPk(req.params.id)
     return res.json(review)
@@ -60,7 +65,7 @@ const reviewError = (message) => {
   router.delete('/:id(\\d+)', restoreUser, asyncHandler(async(req, res, next) => {
     const {user} = req
       if(!user){
-          return next(shelfError('you must be logged in to delete a review.'))
+          return next(reviewError('you must be logged in to delete a review.'))
       }
       const review = await Review.findByPk(req.params.id)
       await review.destroy()

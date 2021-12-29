@@ -1,4 +1,4 @@
-# the-net-archives
+# The Net Archives
 
 The Net Archives is a GoodReads clone dedicated to the cyberpunk genre. It goes beyond books and includes other formats of media including, but not limited to: movies, video games, and TV series.
 
@@ -13,6 +13,16 @@ The Net Archives is a GoodReads clone dedicated to the cyberpunk genre. It goes 
 - Redux
 - Postgresql
 - Sequelize
+- bcryptjs
+- cookie-parser
+- CORS
+- CSURF
+- Faker
+- Helmet
+- JSONWebtoken
+- Morgan
+- React-Router-Dom
+- React-Redux
 
 # Frontend Routes
 
