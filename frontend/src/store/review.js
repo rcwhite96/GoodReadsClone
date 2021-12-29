@@ -116,10 +116,13 @@ const reviewReducer = (state = initialState, action) => {
                 newState.currentReview = action.payload
                 return newState
             case DELETE_REVIEW:
-                newState = {...state}
-                const indexRemove = newState.reviews.findIndex(review => review.id === action.payload.id)
-                newState.reviews.splice(indexRemove, 1)
+                newState={...state}
+                delete newState[action.payload]
                 return newState
+                // newState = {...state}
+                // const indexRemove = newState.reviews.findIndex(review => review.id === action.payload.id)
+                // newState.reviews.splice(indexRemove, 1)
+                // return newState
             default:
                 return state;
         }

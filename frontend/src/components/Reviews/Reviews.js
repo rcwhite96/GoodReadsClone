@@ -13,9 +13,8 @@ export default function Reviews({title, content, sessionUser, revSessionUser, re
         dispatch(oneReview(reviewId))
     }, [dispatch])
 
-    const handleDelete = (id) => {
-        dispatch(removeReview(id))
-        return <Redirect to={`/media/${mediaId}`}/>
+    const handleDelete = (reviewId) => {
+        dispatch(removeReview(reviewId))
     }
 
     return(

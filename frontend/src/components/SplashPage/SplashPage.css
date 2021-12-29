@@ -1,0 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
+
+
+.desc{
+    font-family: 'Quicksand', sans-serif;
+    color: rgb(233, 217, 223);
+    display: flex;
+    justify-content: center;
+}
+
+.btn-div{
+    margin-bottom: 50rem;
+}
