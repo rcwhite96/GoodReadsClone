@@ -14,6 +14,7 @@ export default function Reviews({title, content, sessionUser, revSessionUser, re
 
     const handleDelete = (reviewId) => {
         dispatch(removeReview(reviewId))
+        window.location.reload()
     }
 
     return(
