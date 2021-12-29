@@ -60,7 +60,7 @@ const reviewError = (message) => {
   router.delete('/:id(\\d+)', restoreUser, asyncHandler(async(req, res, next) => {
     const {user} = req
       if(!user){
-          return next(shelfError('you must be logged in to delete a review.'))
+          return next(reviewError('you must be logged in to delete a review.'))
       }
       const review = await Review.findByPk(req.params.id)
       await review.destroy()
