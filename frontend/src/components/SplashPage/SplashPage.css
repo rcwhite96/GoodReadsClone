@@ -6,8 +6,15 @@
     color: rgb(233, 217, 223);
     display: flex;
     justify-content: center;
+    margin-bottom: 40px;
 }
 
 .btn-div{
-    margin-bottom: 50rem;
+    margin-bottom: 10%;
+    margin-top: 40px;
+}
+
+.logo-container{
+    display: flex;
+    justify-content: center;
 }

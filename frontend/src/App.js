@@ -20,7 +20,6 @@ import EditReviewForm from './components/EditReviewForm/EditReviewForm';
 import OneShelfPage from './components/OneShelfPage/OneShelfPage';
 import EditShelfForm from './components/EditShelfForm/EditShelfForm'
 import AddToShelfForm from './components/AddToShelfPage/AddToShelfForm'
-import Reviews from './components/Reviews/Reviews'
 
 function App() {
   const dispatch = useDispatch();
