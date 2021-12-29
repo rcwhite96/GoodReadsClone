@@ -23,6 +23,7 @@ export default function OneMediaPage(){
                      content={rev.content}
                      sessionUser={sessionUser}
                      revSessionUser={rev.userId}
+                     reviewId={rev.id}
                 />
             }
 

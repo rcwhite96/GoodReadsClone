@@ -84,7 +84,7 @@ export const putReview = (id, title, content, mediaId) => async dispatch => {
 }
 
 export const removeReview = (id) => async dispatch => {
-    const res = await csrfFetch(`/api/review/${id}`, {
+    const res = await csrfFetch(`/api/reviews/${id}`, {
         method: 'DELETE'
     })
     if(res.ok){
@@ -116,10 +116,13 @@ const reviewReducer = (state = initialState, action) => {
                 newState.currentReview = action.payload
                 return newState
             case DELETE_REVIEW:
-                newState = {...state}
-                const indexRemove = newState.reviews.findIndex(review => review.id === action.payload.id)
-                newState.reviews.splice(indexRemove, 1)
+                newState={...state}
+                delete newState[action.payload]
                 return newState
+                // newState = {...state}
+                // const indexRemove = newState.reviews.findIndex(review => review.id === action.payload.id)
+                // newState.reviews.splice(indexRemove, 1)
+                // return newState
             default:
                 return state;
         }
