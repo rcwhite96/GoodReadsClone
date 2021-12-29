@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch } from 'react-redux';
 import{ NavLink, useParams } from 'react-router-dom'
-import {removeReview, oneReview} from '../../store/review'
+import {removeReview, getReviews} from '../../store/review'
 
 
 export default function Reviews({title, content, sessionUser, revSessionUser, reviewId}){
@@ -9,7 +9,7 @@ export default function Reviews({title, content, sessionUser, revSessionUser, re
     const {mediaId} = useParams()
 
     useEffect(() => {
-        dispatch(oneReview(reviewId))
+        dispatch(getReviews())
     }, [dispatch])
 
     const handleDelete = (reviewId) => {

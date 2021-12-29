@@ -29,6 +29,11 @@ const reviewError = (message) => {
     handleValidationErrors,
   ];
 
+  router.get('/', asyncHandler(async(req, res) => {
+    const reviews = await Review.findAll()
+    return res.json(reviews)
+}))
+
   router.get('/:id(\\d+)', asyncHandler(async(req, res, next) => {
     const review = await Review.findByPk(req.params.id)
     return res.json(review)

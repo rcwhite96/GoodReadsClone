@@ -1,7 +1,7 @@
 import React from "react";
 import{ NavLink } from 'react-router-dom'
 import './SplashPage.css'
-import logo from './pngkey.com-triangle-png-81976.png'
+import logo from './pngaaa.com-3543360.png'
 
 export default function SplashPage(){
     return(
