@@ -119,7 +119,6 @@ const reviewReducer = (state = initialState, action) => {
                 newState={...state}
                 delete newState.reviews[action.payload]
                 return newState
-
             default:
                 return state;
         }
