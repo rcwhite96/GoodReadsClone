@@ -6,13 +6,15 @@ import { putReview, oneReview, getReviews } from  '../../store/review'
 
 export default function EditReviewForm(){
     const {reviewId} = useParams()
+
     const {mediaId} = useParams()
 
     const sessionUser = useSelector((state => state.session.user))
-    const review = useSelector((state => state.review[reviewId]))
+    const review = useSelector((state => state.review.reviews[reviewId]))
+    console.log(review)
 
-    const [title, setTitle] = useState('');
-    const [content, setContent] = useState('')
+    const [title, setTitle] = useState(review?.title);
+    const [content, setContent] = useState(review?.content)
     const dispatch = useDispatch();
     const history = useHistory();
     const [errors, setErrors] = useState([]);
@@ -21,8 +23,7 @@ export default function EditReviewForm(){
         if(!review){
             dispatch(getReviews())
         } else {
-            setTitle(review.title)
-            setContent(review.content)
+
         }
     }, [dispatch, review, reviewId, title, content])
 

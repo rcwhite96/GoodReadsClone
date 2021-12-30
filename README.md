@@ -32,6 +32,23 @@ The Net Archives is a GoodReads clone dedicated to the cyberpunk genre. It goes 
 
 [View backend routes here](https://github.com/rcwhite96/the-net-archives/wiki/Backend-Routes)
 
+# Features
+
+### Media
+
+View various media.
+![screenshot1](Screenshots/media.PNG)
+
+### Reviews
+
+Add, delete and edit reviews to media.
+![screenshot2](Screenshots/oneMedia.PNG)
+
+### Shelves
+
+Add, delete and edit shelves to save your favorite media.
+![screenshot3](Screenshots/shelves.PNG)
+
 # Setting Up Local Use
 
 1. Clone the repo from GitHub.
