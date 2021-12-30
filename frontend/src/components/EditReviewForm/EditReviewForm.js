@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from 'react-redux';
 import{ useParams, Redirect, useHistory} from 'react-router-dom'
-import { putReview, oneReview, getReviews } from  '../../store/review'
+import { putReview, getReviews } from  '../../store/review'
 
 
 export default function EditReviewForm(){

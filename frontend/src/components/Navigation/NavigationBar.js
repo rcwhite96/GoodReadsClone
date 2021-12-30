@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux'
 
 // import other components
 import ProfileButton from './ProfileButton';
+import SearchForm from '../SearchBar/SearchBar';
 import './NavBar.module.css'
 
 
@@ -44,6 +45,9 @@ const NavigationBar = ({ isLoaded }) => {
                   <button className="home-btn">Home</button>
                </NavLink>
                {isLoaded && sessionLinks}
+               <div className="search-container">
+                  <SearchForm/>
+               </div>
             </div>
          </div>
    );
