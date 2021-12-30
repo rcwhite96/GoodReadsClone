@@ -10,7 +10,7 @@ export default function EditReviewForm(){
     const {mediaId} = useParams()
 
     const sessionUser = useSelector((state => state.session.user))
-    const review = useSelector((state => state.review.reviews[reviewId]))
+    const review = useSelector((state => state.review.reviews[reviewId - 1]))
     console.log(review)
 
     const [title, setTitle] = useState(review?.title);
