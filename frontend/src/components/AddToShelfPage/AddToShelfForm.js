@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from 'react-redux';
 import{ useParams, Redirect, useHistory} from 'react-router-dom'
-import { getShelves } from  '../../store/shelf'
+import { getShelves, getOne } from  '../../store/shelf'
 
 export default function AddToShelfForm(){
     const {shelfId} = useParams()
@@ -11,10 +11,13 @@ export default function AddToShelfForm(){
     const history = useHistory()
     const allShelf = useSelector((state => state.shelves))
     const dispatch = useDispatch();
+    console.log(allShelf)
 
     useEffect(() => {
-        dispatch(getShelves())
-    }, [dispatch])
+        if(option.length){
+            dispatch(getShelves())
+        }
+    }, [dispatch, option.length])
 
     if (!sessionUser) {
         return <Redirect to="/login" />;
@@ -23,7 +26,7 @@ export default function AddToShelfForm(){
     const handleSubmit = async (e) => {
         e.preventDefault()
         setErrors([])
-        const shelf = await dispatch(getShelves(shelfId)).catch(async (res) => {
+        const shelf = await dispatch(getShelves()).catch(async (res) => {
             const data = await res.json()
             if (data && data.errors) {
                 const filteredErrors = data.errors.filter(
@@ -48,9 +51,9 @@ export default function AddToShelfForm(){
                         ))}
                     </p>
                 </div>
-                <select name="option" onChange={(e) => setOption(e.target.value)}>
+                <select className="select" name="option" onChange={(e) => setOption(e.target.value)}>
                 {allShelf?.map((shelf) =>
-                    <option value={option} key={shelf.id}>{shelf.title}</option>
+                    <option className="option" value={option} key={shelf.id}>{shelf?.title}</option>
                     )}
                 </select>
                     <button className="nav-btn" type="submit">

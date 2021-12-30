@@ -8,9 +8,10 @@ export default function EditShelfForm(){
     const {shelfId} = useParams()
 
     const sessionUser = useSelector((state => state.session.user))
-    const shelf = useSelector((state => state.shelves))
+    const shelf = useSelector((state => state.shelf.oneShelf))
+    console.log(shelf)
 
-    const [title, setTitle] = useState('');
+    const [title, setTitle] = useState(shelf.title);
     const dispatch = useDispatch();
     const history = useHistory();
     const [errors, setErrors] = useState([]);
@@ -19,7 +20,7 @@ export default function EditShelfForm(){
         if(!shelf){
             dispatch(getShelves())
         } else {
-            setTitle(shelf.title)
+           
         }
     }, [dispatch, shelfId, title, shelf])
 
@@ -48,7 +49,7 @@ export default function EditShelfForm(){
     return (
         <>
             <form onSubmit={handleSubmit} className='signup-container'>
-                <h2>Edit Review</h2>
+                <h2>Edit Shelf</h2>
                     <div className="error-div">
                         <p className="form-errors">
                             {errors.map((error, i) => (

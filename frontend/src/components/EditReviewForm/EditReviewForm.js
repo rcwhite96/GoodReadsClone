@@ -1,28 +1,29 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from 'react-redux';
 import{ useParams, Redirect, useHistory} from 'react-router-dom'
-import { putReview, oneReview } from  '../../store/review'
+import { putReview, oneReview, getReviews } from  '../../store/review'
 
 
 export default function EditReviewForm(){
     const {reviewId} = useParams()
+
     const {mediaId} = useParams()
 
     const sessionUser = useSelector((state => state.session.user))
-    const review = useSelector((state => state.review[reviewId]))
+    const review = useSelector((state => state.review.reviews[reviewId - 1]))
+    console.log(review)
 
-    const [title, setTitle] = useState('');
-    const [content, setContent] = useState('')
+    const [title, setTitle] = useState(review?.title);
+    const [content, setContent] = useState(review?.content)
     const dispatch = useDispatch();
     const history = useHistory();
     const [errors, setErrors] = useState([]);
 
     useEffect(() => {
         if(!review){
-            dispatch(oneReview(reviewId))
+            dispatch(getReviews())
         } else {
-            setTitle(review.title)
-            setContent(review.content)
+
         }
     }, [dispatch, review, reviewId, title, content])
 
