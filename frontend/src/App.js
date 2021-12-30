@@ -20,6 +20,7 @@ import EditReviewForm from './components/EditReviewForm/EditReviewForm';
 import OneShelfPage from './components/OneShelfPage/OneShelfPage';
 import EditShelfForm from './components/EditShelfForm/EditShelfForm'
 import AddToShelfForm from './components/AddToShelfPage/AddToShelfForm'
+import SearchPage from './components/SearchPage/SearchPage';
 
 function App() {
   const dispatch = useDispatch();
@@ -80,6 +81,9 @@ function App() {
           <Route path='/media/:mediaId/add-to-shelf' exact={true}>
             <AddToShelfForm/>
             <Footer/>
+          </Route>
+          <Route path='/search/:searchTerm'>
+            <SearchPage/>
           </Route>
         </Switch>
       )}

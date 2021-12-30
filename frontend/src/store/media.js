@@ -3,6 +3,7 @@ const {csrfFetch} = require('./csrf')
 const GET_ALL_MEDIA = 'media/getAllMedia'
 const GET_ONE_MEDIA = 'media/getOneMedia'
 const ADD_TO_SHELF = 'media/addToShelf'
+const SEARCH_MEDIA = 'media/searchMedia'
 
 
 const getAllMedia = payload => {
@@ -22,6 +23,13 @@ const getOneMedia = payload => {
 const addToShelf = payload => {
     return{
         type: ADD_TO_SHELF,
+        payload
+    }
+}
+
+const searchMedia = payload => {
+    return {
+        type: SEARCH_MEDIA,
         payload
     }
 }
@@ -53,6 +61,16 @@ export const mediaToShelf = (id) => async dispatch => {
     }
 }
 
+export const mediaSearch = (searchTerm) => async dispatch => {
+    const res = await fetch(`/api/search/${searchTerm}`)
+    if(res.ok){
+        const data = await res.json()
+        dispatch(searchMedia(data))
+        console.log(data)
+        return data
+    }
+}
+
 let initialState = {media:[]}
 
 const mediaReducer = (state = initialState, action) => {
@@ -69,6 +87,10 @@ const mediaReducer = (state = initialState, action) => {
             case ADD_TO_SHELF:
                 newState = {...state}
                 return newState.concat(action.payload)
+            case SEARCH_MEDIA:
+                newState = {...state}
+                newState = action.payload
+                return newState
             default:
                 return state;
         }

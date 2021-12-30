@@ -81,6 +81,10 @@ a{
     text-decoration: none;
   }
 
+  .media-btn:hover{
+    background-color: rgb(221, 124, 163);
+}
+
   .btn-div{
       display: flex;
       justify-content: center;

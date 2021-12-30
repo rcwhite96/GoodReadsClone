@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from 'react-redux';
-import{ useParams, Redirect, useHistory} from 'react-router-dom'
-import { getShelves, getOne } from  '../../store/shelf'
+import{ Redirect, useHistory} from 'react-router-dom'
+import { getShelves } from  '../../store/shelf'
 
 export default function AddToShelfForm(){
-    const {shelfId} = useParams()
     const sessionUser = useSelector((state => state.session.user))
     const [option, setOption] = useState([])
     const [errors, setErrors] = useState([])
