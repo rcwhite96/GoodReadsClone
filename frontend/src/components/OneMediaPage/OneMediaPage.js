@@ -25,7 +25,6 @@ export default function OneMediaPage(){
                      reviewId={rev.id}
                 />
             }
-
         </div>
     )
 

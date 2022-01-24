@@ -2,7 +2,8 @@ import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from 'react-redux';
 import{ useParams, Redirect, useHistory} from 'react-router-dom'
 import { putReview, getReviews } from  '../../store/review'
-
+import { CKEditor } from '@ckeditor/ckeditor5-react';
+import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 
 export default function EditReviewForm(){
     const {reviewId} = useParams()
@@ -66,12 +67,15 @@ export default function EditReviewForm(){
                     onChange ={(e) => setTitle(e.target.value)}
                     value={title}
                     />
-                    <textarea
-                    className="content-input"
-                    placeholder="content"
-                    onChange ={(e) => setContent(e.target.value)}
-                    value={content}
-                    />
+                    <div className="editor">
+                        <CKEditor
+                        editor={ClassicEditor}
+                        data={content}
+                        onChange={(e, editor) => {
+                            const data = editor.getData()
+                            setContent(data)
+                        }}/>
+                    </div>
                     <button className="nav-btn" type="submit">
                         Confirm Edit
                     </button>
