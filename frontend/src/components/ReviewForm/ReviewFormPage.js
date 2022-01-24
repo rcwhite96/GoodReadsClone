@@ -2,6 +2,8 @@ import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, Redirect, useParams } from 'react-router-dom';
 import { addReview } from '../../store/review';
+import { CKEditor } from '@ckeditor/ckeditor5-react';
+import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 
 import './ReviewFormPage.css'
 
@@ -13,7 +15,7 @@ const CreateReview = () => {
     const history = useHistory()
     const [errors, setErrors] = useState([])
     const {mediaId} = useParams()
-    
+
 
     if (!sessionUser) {
         return <Redirect to="/login" />;
@@ -53,12 +55,15 @@ const CreateReview = () => {
                     onChange ={(e) => setTitle(e.target.value)}
                     value={title}
                     />
-                    <textarea
-                    className="content-input"
-                    placeholder="content"
-                    onChange ={(e) => setContent(e.target.value)}
-                    value={content}
-                    />
+                    <div className="editor">
+                        <CKEditor
+                        editor={ClassicEditor}
+                        data={content}
+                        onChange={(e, editor) => {
+                            const data = editor.getData()
+                            setContent(data)
+                        }}/>
+                    </div>
                     <button className="nav-btn" type="submit">
                         Add Review
                     </button>

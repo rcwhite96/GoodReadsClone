@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useDispatch } from 'react-redux';
 import{ NavLink, useParams } from 'react-router-dom'
 import {removeReview, getReviews} from '../../store/review'
+import parse from 'html-react-parser';
 
 
 export default function Reviews({title, content, sessionUser, revSessionUser, reviewId}){
@@ -20,7 +21,7 @@ export default function Reviews({title, content, sessionUser, revSessionUser, re
     return(
         <>
             <div className="review-title">{title}</div>
-            <div className="review-content">{content}</div>
+            <div className="review-content">{parse(content)}</div>
             <div className="review-buttons">
             {(sessionUser.id === revSessionUser) ?
                 <>
