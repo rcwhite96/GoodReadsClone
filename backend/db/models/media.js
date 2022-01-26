@@ -12,6 +12,10 @@ module.exports = (sequelize, DataTypes) => {
     Media.hasMany(models.Review, {
       foreignKey: 'mediaId'
     })
+    Media.belongsToMany(models.Shelf, {
+      through: 'ShelfMedia',
+      foreignKey: 'mediaId'
+    })
   };
   return Media;
 };
