@@ -4,7 +4,7 @@ const { restoreUser } = require('../../utils/auth');
 
 const router = express.Router();
 
-const { Shelf } = require('../../db/models');
+const { Shelf, Media, ShelfMedia } = require('../../db/models');
 const { check } = require('express-validator');
 const { handleValidationErrors } = require('../../utils/validation');
 
@@ -33,7 +33,9 @@ router.get('/:id(\\d+)', restoreUser, asyncHandler(async(req, res, next) => {
     if(!user){
         return next(shelfError('Must be logged in to see your shelves.'))
     }
-    const shelf = await Shelf.findByPk(req.params.id)
+    const shelf = await Shelf.findByPk(req.params.id, {
+        include: Media
+    })
     return res.json(shelf)
 }))
 

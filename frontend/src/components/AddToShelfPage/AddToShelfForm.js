@@ -8,7 +8,7 @@ export default function AddToShelfForm(){
     const [option, setOption] = useState([])
     const [errors, setErrors] = useState([])
     const history = useHistory()
-    const allShelf = useSelector((state => state.shelves))
+    const allShelf = useSelector((state => state.shelf.shelves))
     const dispatch = useDispatch();
     console.log(allShelf)
 

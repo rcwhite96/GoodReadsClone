@@ -8,6 +8,10 @@ module.exports = (sequelize, DataTypes) => {
     Shelf.belongsTo(models.User, {
       foreignKey:'userId'
     });
+    Shelf.belongsToMany(models.Media, {
+      through: 'ShelfMedia',
+      foreignKey: 'shelfId'
+    })
   };
   return Shelf;
 };
