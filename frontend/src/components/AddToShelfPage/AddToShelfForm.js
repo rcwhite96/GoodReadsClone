@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from 'react-redux';
-import{ Redirect, useHistory} from 'react-router-dom'
-import { getShelves } from  '../../store/shelf'
+import{ Redirect, useHistory, useParams} from 'react-router-dom'
+import { get } from  '../../store/shelfMedia'
 
 export default function AddToShelfForm(){
     const sessionUser = useSelector((state => state.session.user))
@@ -10,11 +10,12 @@ export default function AddToShelfForm(){
     const history = useHistory()
     const allShelf = useSelector((state => state.shelf.shelves))
     const dispatch = useDispatch();
+
     console.log(allShelf)
 
     useEffect(() => {
         if(option.length){
-            dispatch(getShelves())
+            dispatch(get())
         }
     }, [dispatch, option.length])
 
@@ -25,7 +26,7 @@ export default function AddToShelfForm(){
     const handleSubmit = async (e) => {
         e.preventDefault()
         setErrors([])
-        const shelf = await dispatch(getShelves()).catch(async (res) => {
+        const shelf = await dispatch(get()).catch(async (res) => {
             const data = await res.json()
             if (data && data.errors) {
                 const filteredErrors = data.errors.filter(
