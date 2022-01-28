@@ -78,7 +78,7 @@ function App() {
             <EditShelfForm/>
             <Footer/>
           </Route>
-          <Route path='/media/:mediaId/add-to-shelf' exact={true}>
+          <Route path='/media/:mediaId/add-to-shelf/' exact={true}>
             <AddToShelfForm/>
             <Footer/>
           </Route>

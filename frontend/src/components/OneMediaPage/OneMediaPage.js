@@ -9,6 +9,7 @@ export default function OneMediaPage(){
     let dispatch = useDispatch()
     let currentMedia = useSelector(state => state.media.oneMedia)
     const {mediaId} = useParams()
+    const {shelfId} = useParams()
     const sessionUser = useSelector((state => state.session.user))
 
     useEffect(() => {
@@ -49,7 +50,7 @@ export default function OneMediaPage(){
 
             <div className="review-header">Reviews:</div>
             <div className="add-rev-container">
-                <NavLink to={`/media/${mediaId}/add-review`}>
+                <NavLink to={`/media/${mediaId}/add-review/${shelfId}`}>
                     <button className="nav-btn">Add Review</button>
                 </NavLink>
             </div>

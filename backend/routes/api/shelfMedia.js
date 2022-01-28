@@ -22,7 +22,11 @@ const shelfError = (message) => {
 }))
 
   router.post('/', restoreUser, asyncHandler(async(req, res, next) => {
-      const shelfMedia= await ShelfMedia.create(req.body)
+      const {shelfId, mediaId} = req.body
+      console.log(shelfId)
+      console.log(mediaId)
+      console.log("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA")
+      const shelfMedia= await ShelfMedia.create({mediaId, shelfId})
       return res.json(shelfMedia)
   }))
 

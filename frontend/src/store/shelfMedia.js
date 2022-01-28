@@ -21,6 +21,7 @@ export const get = () => async dispatch => {
     const res = await csrfFetch('/api/add-to-shelf')
     const shelfMedia = await res.json()
     dispatch(getShelfMedia(shelfMedia))
+    console.log(shelfMedia)
     return shelfMedia
 }
 
@@ -43,6 +44,7 @@ const shelfMediaReducer = (state = initialState, action) => {
             case GET_SHELF_MEDIA:
                 newState = {...state}
                 newState.shelfMedia = action.payload
+                console.log(newState)
                 return newState
             case ADD_SHELF_MEDIA:
                 newState = {...state}

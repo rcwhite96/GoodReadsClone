@@ -1,9 +1,17 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useDispatch } from 'react-redux';
 import{ NavLink } from 'react-router-dom'
 import './SplashPage.css'
 import logo from './pngaaa.com-3543360.png'
+import { getShelves } from  '../../store/shelf'
 
 export default function SplashPage(){
+    const dispatch = useDispatch()
+
+    useEffect(() => {
+        dispatch(getShelves())
+    },[dispatch])
+
     return(
         <>
             <h1>Check Out Cyberpunk Media Today</h1>

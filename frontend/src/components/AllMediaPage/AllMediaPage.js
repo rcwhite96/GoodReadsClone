@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import{ NavLink } from 'react-router-dom'
 import { getAll } from  '../../store/media'
 import './AllMediaPage.css'
-
+import { getShelves } from  '../../store/shelf'
 
 export default function AllProjectsPage(){
     let dispatch = useDispatch()
@@ -17,6 +17,10 @@ export default function AllProjectsPage(){
             </div>
         </NavLink>
     )
+    
+    useEffect(() => {
+        dispatch(getShelves())
+    },[dispatch])
 
     useEffect(()=>{
         dispatch(getAll())},

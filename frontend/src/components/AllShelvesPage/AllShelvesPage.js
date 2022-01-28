@@ -19,7 +19,7 @@ export default function AllShelvesPage(){
     useEffect(() => {
         dispatch(getShelves())
     },[dispatch])
-
+    //as soon as person logs in 
     return (
         <>
             <div >{shelfList}</div>
