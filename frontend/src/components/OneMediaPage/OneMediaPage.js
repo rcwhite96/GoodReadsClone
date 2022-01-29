@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from 'react-redux';
-import{ NavLink, useParams} from 'react-router-dom'
+import{ NavLink, useParams, useHistory} from 'react-router-dom'
 import { getOne, remove } from  '../../store/media'
 import Reviews from '../Reviews/Reviews'
 import './OneMediaPage.css'
@@ -9,16 +9,16 @@ export default function OneMediaPage(){
     let dispatch = useDispatch()
     let currentMedia = useSelector(state => state.media.oneMedia)
     const {mediaId} = useParams()
-    const {shelfId} = useParams()
     const sessionUser = useSelector((state => state.session.user))
+    const history = useHistory()
 
     useEffect(() => {
         dispatch(getOne(mediaId))
     }, [dispatch])
 
-    const handleDelete = (mediaId) => {
-        dispatch(remove(mediaId))
-        window.location.reload()
+    const handleDelete = async(mediaId) => {
+        await dispatch(remove(mediaId))
+        history.push('/media')
     }
 
     const reviews = currentMedia?.Reviews.map((rev, index) =>
@@ -33,8 +33,6 @@ export default function OneMediaPage(){
             }
         </div>
     )
-
-
 
     return(
         <>

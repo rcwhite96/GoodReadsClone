@@ -1,10 +1,7 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useHistory, Redirect, useParams } from 'react-router-dom';
-import { addReview } from '../../store/review';
-// import { CKEditor } from '@ckeditor/ckeditor5-react';
-// import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
-
+import { useHistory, Redirect } from 'react-router-dom';
+import { add } from '../../store/media';
 
 const CreateMedia = () => {
     const sessionUser = useSelector((state => state.session.user))
@@ -16,7 +13,6 @@ const CreateMedia = () => {
     const [description, setDescription] = useState('')
     const history = useHistory()
     const [errors, setErrors] = useState([])
-    const {mediaId} = useParams()
 
 
     if (!sessionUser) {
@@ -26,7 +22,7 @@ const CreateMedia = () => {
     const handleSubmit = async(e) => {
         e.preventDefault()
         setErrors([])
-        const review = await dispatch(addReview(imageURL, title, creator, mediaType, description)).catch(async(res) => {
+        const review = await dispatch(add(imageURL, title, creator, mediaType, description)).catch(async(res) => {
             const data = await res.json()
             if (data && data.errors) {
                 const filteredErrors = data.errors.filter(
@@ -36,7 +32,7 @@ const CreateMedia = () => {
             }
         })
         if(review) {
-            return history.push(`/media/${mediaId}`)
+            return history.push(`/media`)
         }
     }
 
@@ -81,15 +77,6 @@ const CreateMedia = () => {
                         onChange ={(e) => setDescription(e.target.value)}
                         value={description}
                     />
-                    {/* <div className="editor">
-                        <CKEditor
-                        editor={ClassicEditor}
-                        data={description}
-                        onChange={(e, editor) => {
-                            const data = editor.getData()
-                            setDescription(data)
-                        }}/>
-                    </div> */}
                     <button className="nav-btn" type="submit">
                         Add Media
                     </button>
