@@ -17,6 +17,9 @@ const NavigationBar = ({ isLoaded }) => {
             <NavLink to="/media">
                <button className="nav-btn">Media</button>
             </NavLink>
+            <NavLink to="/add-media">
+               <button className="nav-btn">Add Media</button>
+            </NavLink>
             <NavLink to="/shelves">
                <button className="nav-btn">Your Shelves</button>
             </NavLink>

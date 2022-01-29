@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from 'react-redux';
 import{ NavLink, useParams} from 'react-router-dom'
-import { getOne } from  '../../store/media'
+import { getOne, remove } from  '../../store/media'
 import Reviews from '../Reviews/Reviews'
 import './OneMediaPage.css'
 
@@ -9,11 +9,17 @@ export default function OneMediaPage(){
     let dispatch = useDispatch()
     let currentMedia = useSelector(state => state.media.oneMedia)
     const {mediaId} = useParams()
+    const {shelfId} = useParams()
     const sessionUser = useSelector((state => state.session.user))
 
     useEffect(() => {
         dispatch(getOne(mediaId))
     }, [dispatch])
+
+    const handleDelete = (mediaId) => {
+        dispatch(remove(mediaId))
+        window.location.reload()
+    }
 
     const reviews = currentMedia?.Reviews.map((rev, index) =>
         <div key={index} className="review-div">
@@ -43,13 +49,20 @@ export default function OneMediaPage(){
                         <NavLink to={`/media/${mediaId}/add-to-shelf`}>
                             <button className="nav-btn">Add to Shelf</button>
                         </NavLink>
+                        {(sessionUser.id === currentMedia?.userId) ?
+                        <>
+                        <NavLink to={`/media/${mediaId}/edit`}>
+                            <button className="nav-btn">Edit</button>
+                        </NavLink>
+                            <button onClick={() => handleDelete(mediaId)} className="nav-btn">Delete</button>
+                        </> : null}
                     </div>
                 </div>
             </div>
 
             <div className="review-header">Reviews:</div>
             <div className="add-rev-container">
-                <NavLink to={`/media/${mediaId}/add-review`}>
+                <NavLink to={`/media/${mediaId}/add-review/${shelfId}`}>
                     <button className="nav-btn">Add Review</button>
                 </NavLink>
             </div>

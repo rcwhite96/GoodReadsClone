@@ -1,22 +1,30 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from 'react-redux';
-import{ Redirect, useHistory} from 'react-router-dom'
+import{ Redirect, useHistory, useParams} from 'react-router-dom'
+import { get, add } from  '../../store/shelfMedia'
 import { getShelves } from  '../../store/shelf'
 
-export default function AddToShelfForm(){
+export default function AddToShelfForm({shelfId}){
     const sessionUser = useSelector((state => state.session.user))
     const [option, setOption] = useState([])
     const [errors, setErrors] = useState([])
     const history = useHistory()
     const allShelf = useSelector((state => state.shelf.shelves))
     const dispatch = useDispatch();
-    console.log(allShelf)
+    const {mediaId}= useParams()
+    console.log(shelfId)
+    console.log(mediaId)
 
     useEffect(() => {
         if(option.length){
-            dispatch(getShelves())
+            dispatch(add(mediaId, shelfId))
         }
     }, [dispatch, option.length])
+
+    //this renders the shelves in the dropdown
+    useEffect(() => {
+        dispatch(getShelves())
+    },[dispatch])
 
     if (!sessionUser) {
         return <Redirect to="/login" />;
@@ -25,19 +33,19 @@ export default function AddToShelfForm(){
     const handleSubmit = async (e) => {
         e.preventDefault()
         setErrors([])
-        const shelf = await dispatch(getShelves()).catch(async (res) => {
-            const data = await res.json()
-            if (data && data.errors) {
-                const filteredErrors = data.errors.filter(
-                  (error) => error !== 'Invalid value'
-                );
-                setErrors(filteredErrors);
-              }
-        })
-        if(shelf) {
+
+        const data = await dispatch(add(mediaId))
+
+        if (data && data.errors) {
+            const filteredErrors = data.errors.filter(
+                (error) => error !== 'Invalid value'
+            );
+            setErrors(filteredErrors);
+        }
+        if(data) {
             return history.push(`/media`)
         }
-      }
+    }
 
     return (
         <>
@@ -50,9 +58,10 @@ export default function AddToShelfForm(){
                         ))}
                     </p>
                 </div>
-                <select className="select" name="option" onChange={(e) => setOption(e.target.value)}>
+                <select className="select" name="option" value={option} onChange={(e) => { setOption(e.target.value)}}>
+
                 {allShelf?.map((shelf) =>
-                    <option className="option" value={option} key={shelf.id}>{shelf?.title}</option>
+                    <option className="option" value={shelf.id} key={shelf.id}>{shelf?.title}</option>
                     )}
                 </select>
                     <button className="nav-btn" type="submit">

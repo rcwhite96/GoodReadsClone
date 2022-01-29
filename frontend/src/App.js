@@ -21,6 +21,7 @@ import OneShelfPage from './components/OneShelfPage/OneShelfPage';
 import EditShelfForm from './components/EditShelfForm/EditShelfForm'
 import AddToShelfForm from './components/AddToShelfPage/AddToShelfForm'
 import SearchPage from './components/SearchPage/SearchPage';
+import CreateMedia from './components/AddMediaPage/AddMediaPage'
 
 function App() {
   const dispatch = useDispatch();
@@ -54,6 +55,9 @@ function App() {
             <OneMediaPage/>
             <Footer/>
           </Route>
+          <Route path="/add-media" exact={true}>
+            <CreateMedia/>
+          </Route>
           <Route path='/media/:mediaId/add-review' exact={true}>
             <CreateReview/>
             <Footer/>
@@ -78,7 +82,7 @@ function App() {
             <EditShelfForm/>
             <Footer/>
           </Route>
-          <Route path='/media/:mediaId/add-to-shelf' exact={true}>
+          <Route path='/media/:mediaId/add-to-shelf/' exact={true}>
             <AddToShelfForm/>
             <Footer/>
           </Route>

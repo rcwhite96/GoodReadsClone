@@ -10,6 +10,12 @@ module.exports = {
           createdAt: new Date(),
           updatedAt: new Date()
       },
+      {
+        mediaId: 13,
+        shelfId: 1,
+        createdAt: new Date(),
+        updatedAt: new Date()
+    },
       ], {});
 
   },
