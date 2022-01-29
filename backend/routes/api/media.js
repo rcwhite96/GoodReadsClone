@@ -53,12 +53,12 @@ router.post('/', restoreUser, validateMedia, asyncHandler(async(req, res, next) 
 
 router.put('/:id(\\d+)', restoreUser, validateMedia, asyncHandler(async(req, res, next) => {
     const mediaUpdate = await Media.findByPk(req.params.id);
-    const {imageURL, title, creator, mediaType, description} = req.body
+    const {mediaId, imageURL, title, creator, mediaType, description} = req.body
     const{user} = req
       if(!user){
-          return next(mediaError('Must be logged in to edit a review.'))
+          return next(mediaError('Must be logged in to edit media.'))
       }
-      const media = {userId: user.dataValues.id, imageURL, title, creator, mediaType, description}
+      const media = {userId: user.dataValues.id, mediaId, imageURL, title, creator, mediaType, description}
       await mediaUpdate.update(media)
       return res.json(mediaUpdate)
     }))
@@ -66,7 +66,7 @@ router.put('/:id(\\d+)', restoreUser, validateMedia, asyncHandler(async(req, res
 router.delete('/:id(\\d+)', restoreUser, asyncHandler(async(req, res, next) => {
     const {user} = req
       if(!user){
-          return next(mediaError('you must be logged in to delete a review.'))
+          return next(mediaError('you must be logged in to delete media.'))
       }
       const media = await Media.findByPk(req.params.id)
       await media.destroy()
