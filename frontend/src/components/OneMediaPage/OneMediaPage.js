@@ -62,7 +62,7 @@ export default function OneMediaPage(){
 
             <div className="review-header">Reviews:</div>
             <div className="add-rev-container">
-                <NavLink to={`/media/${mediaId}/add-review/${shelfId}`}>
+                <NavLink to={`/media/${mediaId}/add-review`}>
                     <button className="nav-btn">Add Review</button>
                 </NavLink>
             </div>
