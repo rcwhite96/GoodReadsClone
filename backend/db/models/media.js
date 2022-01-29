@@ -11,7 +11,9 @@ module.exports = (sequelize, DataTypes) => {
   }, {});
   Media.associate = function(models) {
     Media.hasMany(models.Review, {
-      foreignKey: 'mediaId'
+      foreignKey: 'mediaId',
+      onDelete: 'CASCADE',
+      hooks: true
     })
     Media.belongsToMany(models.Shelf, {
       through: 'ShelfMedia',
