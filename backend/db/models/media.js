@@ -6,7 +6,8 @@ module.exports = (sequelize, DataTypes) => {
     creator: DataTypes.STRING,
     mediaType: DataTypes.STRING,
     description: DataTypes.TEXT,
-    status: DataTypes.BOOLEAN
+    status: DataTypes.BOOLEAN,
+    userId: DataTypes.INTEGER
   }, {});
   Media.associate = function(models) {
     Media.hasMany(models.Review, {
@@ -16,6 +17,9 @@ module.exports = (sequelize, DataTypes) => {
       through: 'ShelfMedia',
       foreignKey: 'mediaId'
     })
+    Media.belongsTo(models.User, {
+      foreignKey:'userId'
+    });
   };
   return Media;
 };

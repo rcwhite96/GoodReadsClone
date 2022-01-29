@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from 'react-redux';
-import{ NavLink } from 'react-router-dom'
+import{ NavLink, Redirect } from 'react-router-dom'
 import { getAll } from  '../../store/media'
 import './AllMediaPage.css'
 import { getShelves } from  '../../store/shelf'
@@ -8,6 +8,7 @@ import { getShelves } from  '../../store/shelf'
 export default function AllProjectsPage(){
     let dispatch = useDispatch()
     let medias = useSelector(state => state.media.media)
+    const sessionUser= useSelector(state => state.session.user)
 
     const imgs = medias?.map((media, index) =>
         <NavLink key={index} to={`/media/${media.id}`}>
@@ -17,7 +18,7 @@ export default function AllProjectsPage(){
             </div>
         </NavLink>
     )
-    
+
     useEffect(() => {
         dispatch(getShelves())
     },[dispatch])
@@ -26,6 +27,10 @@ export default function AllProjectsPage(){
         dispatch(getAll())},
         [dispatch]
     )
+
+    if(!sessionUser){
+        return <Redirect to='/'/>
+    }
 
     return (
         <div>

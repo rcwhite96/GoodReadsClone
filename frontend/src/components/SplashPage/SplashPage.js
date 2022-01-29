@@ -18,8 +18,8 @@ export default function SplashPage(){
             <p className="desc">Explore various cyberpunk media, whether it be books, games, movies or TV. Add your favorites to your shelves and let other users know if you enjoyed them!</p>
             <div className="logo-container"><img src={logo} alt="logo" className="logo"/></div>
             <div className="btn-div">
-                <NavLink to="/media">
-                    <button className="media-btn">See Media</button>
+                <NavLink to="/signup">
+                    <button className="media-btn">Sign Up</button>
                 </NavLink>
             </div>
         </>
