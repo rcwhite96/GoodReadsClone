@@ -44,16 +44,16 @@ export default function OneMediaPage(){
                     <div className="info">Media Type: {currentMedia?.mediaType}</div>
                     <div className="info">Description: {currentMedia?.description}</div>
                     <div className="shelf-btn">
-                        <NavLink to={`/media/${mediaId}/add-to-shelf`}>
-                            <button className="nav-btn">Add to Shelf</button>
-                        </NavLink>
-                        {(sessionUser.id === currentMedia?.userId) ?
+                    {(sessionUser.id === currentMedia?.userId) ?
                         <>
                         <NavLink to={`/media/${mediaId}/edit`}>
                             <button className="nav-btn">Edit</button>
                         </NavLink>
                             <button onClick={() => handleDelete(mediaId)} className="nav-btn">Delete</button>
                         </> : null}
+                        <NavLink to={`/media/${mediaId}/add-to-shelf`}>
+                            <button className="nav-btn">Add to Shelf</button>
+                        </NavLink>
                     </div>
                 </div>
             </div>

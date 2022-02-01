@@ -9,10 +9,7 @@ export default function EditMediaForm(){
     const {mediaId} = useParams()
 
     const sessionUser = useSelector((state => state.session.user))
-    // const review = useSelector((state => state.review.reviews[reviewId - 1]))
     const media = useSelector((state => state.media.oneMedia))
-    // const [title, setTitle] = useState(review?.title);
-    // const [content, setContent] = useState(review?.content)
 
     const [imageURL, setImageURL] = useState(media?.imageURL)
     const [title, setTitle] = useState(media?.title)
@@ -56,7 +53,7 @@ export default function EditMediaForm(){
     return (
         <>
             <form onSubmit={handleSubmit} className='signup-container'>
-                <h2>Edit Review</h2>
+                <h2>Edit Media</h2>
                     <div className="error-div">
                         <p className="form-errors">
                             {errors.map((error, i) => (
@@ -94,7 +91,6 @@ export default function EditMediaForm(){
                         onChange ={(e) => setDescription(e.target.value)}
                         value={description}
                     />
-
                     <button className="nav-btn" type="submit">
                         Confirm Edit
                     </button>

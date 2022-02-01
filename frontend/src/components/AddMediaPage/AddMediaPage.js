@@ -39,7 +39,7 @@ const CreateMedia = () => {
     return (
         <>
             <form onSubmit={handleSubmit} className="signup-container">
-            <h2>Post a Review</h2>
+            <h2>Add Media</h2>
                 <div className="error-div">
                     <p className="form-errors">
                         {errors.map((error, i) => (
@@ -78,7 +78,7 @@ const CreateMedia = () => {
                         value={description}
                     />
                     <button className="nav-btn" type="submit">
-                        Add Media
+                        Post
                     </button>
             </form>
         </>
