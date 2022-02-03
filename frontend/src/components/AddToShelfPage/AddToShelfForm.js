@@ -4,21 +4,30 @@ import{ Redirect, useHistory, useParams} from 'react-router-dom'
 import { get, add } from  '../../store/shelfMedia'
 import { getShelves } from  '../../store/shelf'
 
-export default function AddToShelfForm({shelfId}){
+export default function AddToShelfForm(){
     const sessionUser = useSelector((state => state.session.user))
-    const [option, setOption] = useState([])
-    const [errors, setErrors] = useState([])
     const history = useHistory()
     const allShelf = useSelector((state => state.shelf.shelves))
+    const [option, setOption] = useState([])
+    const [selected, setSelected] = useState(0)
+    const [errors, setErrors] = useState([])
     const dispatch = useDispatch();
     const {mediaId}= useParams()
-    console.log(shelfId)
+    // console.log(allShelf[0])
     console.log(mediaId)
 
+    useEffect(() => {setSelected(selected)}, [selected])
+
+    console.log(selected) //undefined
+
     useEffect(() => {
-        if(option.length){
-            dispatch(add(mediaId, shelfId))
-        }
+        // if(option.length){
+            dispatch(add(mediaId, selected))
+            // console.log(option.id)
+            // console.log('---------------')
+            // console.log(shelfId)
+            // console.log(mediaId)
+        // }
     }, [dispatch, option.length])
 
     //this renders the shelves in the dropdown
@@ -34,7 +43,14 @@ export default function AddToShelfForm({shelfId}){
         e.preventDefault()
         setErrors([])
 
-        const data = await dispatch(add(mediaId))
+        console.log(selected)
+        console.log(mediaId)
+        let data
+        if(selected !== null){
+            data = await dispatch(add(mediaId, selected))
+        }else{
+            console.log(errors)
+        }
 
         if (data && data.errors) {
             const filteredErrors = data.errors.filter(
@@ -58,8 +74,8 @@ export default function AddToShelfForm({shelfId}){
                         ))}
                     </p>
                 </div>
-                <select className="select" name="option" value={option} onChange={(e) => { setOption(e.target.value)}}>
-
+                <select className="select" name="option" value={selected} onChange={(e) => { setSelected(e.target.value)}}>
+                {/* onChange={(e) => { setSelected(e.target.value)} */}
                 {allShelf?.map((shelf) =>
                     <option className="option" value={shelf.id} key={shelf.id}>{shelf?.title}</option>
                     )}

@@ -157,9 +157,9 @@ const mediaReducer = (state = initialState, action) => {
                 newState={...state}
                 delete newState.media[action.payload]
                 return newState
-            case ADD_TO_SHELF:
-                newState = {...state}
-                return newState.concat(action.payload)
+            // case ADD_TO_SHELF:
+            //     newState = {...state}
+            //     return newState.concat(action.payload)
             case SEARCH_MEDIA:
                 newState = {...state}
                 newState = action.payload

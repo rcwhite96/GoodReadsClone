@@ -5,14 +5,14 @@ module.exports = (sequelize, DataTypes) => {
     shelfId: DataTypes.INTEGER
   }, {});
   ShelfMedia.associate = function(models) {
-    // ShelfMedia.belongsTo(Shelf, {
-    //   through: 'ShelfMedia',
-    //   foreignKey: 'mediaId'
-    // }),
-    // ShelfMedia.belongsTo(Media, {
-    //   through: 'ShelfMedia',
-    //   foreignKey: 'shelfId'
-    // })
+    ShelfMedia.belongsToMany(models.Shelf, {
+      through: 'ShelfMedia',
+      foreignKey: 'mediaId'
+    }),
+    ShelfMedia.belongsToMany(models.Media, {
+      through: 'ShelfMedia',
+      foreignKey: 'shelfId'
+    })
   };
   return ShelfMedia;
 };

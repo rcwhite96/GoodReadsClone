@@ -34,8 +34,12 @@ router.get('/:id(\\d+)', restoreUser, asyncHandler(async(req, res, next) => {
         return next(shelfError('Must be logged in to see your shelves.'))
     }
     const shelf = await Shelf.findByPk(req.params.id, {
-        include: Media
+        include: Media,
+        where: {
+            shelfMedia: "mediaId"
+        }
     })
+    console.log(shelf)
     return res.json(shelf)
 }))
 

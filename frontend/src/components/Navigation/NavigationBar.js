@@ -13,6 +13,7 @@ const NavigationBar = ({ isLoaded }) => {
    let sessionLinks;
    if (session.user) {
       sessionLinks = (
+         <>
          <div>
             <NavLink to="/media">
                <button className="nav-btn">Media</button>
@@ -23,8 +24,14 @@ const NavigationBar = ({ isLoaded }) => {
             <NavLink to="/shelves">
                <button className="nav-btn">Your Shelves</button>
             </NavLink>
+
             <ProfileButton user={session.user} />
+
          </div>
+         <div className="search-container">
+         <SearchForm/>
+         </div>
+         </>
       )
    } else {
       sessionLinks = (
@@ -36,6 +43,7 @@ const NavigationBar = ({ isLoaded }) => {
                <NavLink to="/signup">
                   <button className="nav-btn">Sign Up</button>
                </NavLink>
+
                </div>
          </div>
       )
@@ -48,9 +56,6 @@ const NavigationBar = ({ isLoaded }) => {
                   <button className="home-btn">Home</button>
                </NavLink>
                {isLoaded && sessionLinks}
-               <div className="search-container">
-                  <SearchForm/>
-               </div>
             </div>
          </div>
    );

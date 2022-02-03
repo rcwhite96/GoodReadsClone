@@ -21,13 +21,16 @@ export const get = () => async dispatch => {
     const res = await csrfFetch('/api/add-to-shelf')
     const shelfMedia = await res.json()
     dispatch(getShelfMedia(shelfMedia))
-    console.log(shelfMedia)
     return shelfMedia
 }
 
-export const add = ({mediaId, shelfId}) => async dispatch => {
+export const add = (mediaId, shelfId) => async dispatch => {
+    console.log("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA")
+    console.log(mediaId)
+    console.log(shelfId)
     const res = await csrfFetch('/api/add-to-shelf', {
         method: 'POST',
+        headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({mediaId, shelfId})
     })
     const shelfMedia = await res.json()
