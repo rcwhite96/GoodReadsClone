@@ -15,10 +15,12 @@ module.exports = (sequelize, DataTypes) => {
       onDelete: 'CASCADE',
       hooks: true
     })
-    // Media.belongsToMany(models.Shelf, {
-    //   through: 'ShelfMedia',
-    //   foreignKey: 'mediaId'
-    // })
+    Media.belongsToMany(models.Shelf, {
+      through: 'ShelfMedia',
+      foreignKey: 'mediaId',
+      otherKey: 'shelfId'
+
+    })
     Media.belongsTo(models.User, {
       foreignKey:'userId'
     });

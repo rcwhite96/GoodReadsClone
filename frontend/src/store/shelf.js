@@ -55,6 +55,8 @@ export const getOne = (id) => async dispatch => {
     if(res.ok){
         const data = await res.json()
         dispatch(getOneShelf(data))
+        console.log(data)
+        console.log("BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB")
         return data
     }
 }
@@ -106,6 +108,8 @@ const shelfReducer = (state = initialState, action) => {
             case GET_ONE_SHELF:
                 newState = {...state}
                 newState.oneShelf = action.payload
+                console.log(newState)
+                console.log("CCCCCCCCCCCCCCCCCCCCCCCCCC")
                 return newState
             case POST_SHELF:
                 newState = {...state}

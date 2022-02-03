@@ -7,11 +7,13 @@ module.exports = (sequelize, DataTypes) => {
   ShelfMedia.associate = function(models) {
     ShelfMedia.belongsToMany(models.Shelf, {
       through: 'ShelfMedia',
-      foreignKey: 'mediaId'
+      foreignKey: 'mediaId',
+      otherKey: 'mediaId'
     }),
     ShelfMedia.belongsToMany(models.Media, {
       through: 'ShelfMedia',
-      foreignKey: 'shelfId'
+      foreignKey: 'shelfId',
+      otherKey: 'shelfId'
     })
   };
   return ShelfMedia;

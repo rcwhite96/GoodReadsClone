@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from 'react-redux';
 import{ Redirect, useHistory, useParams} from 'react-router-dom'
-import { get, add } from  '../../store/shelfMedia'
+import { add } from  '../../store/shelfMedia'
 import { getShelves } from  '../../store/shelf'
 
 export default function AddToShelfForm(){
@@ -13,21 +13,13 @@ export default function AddToShelfForm(){
     const [errors, setErrors] = useState([])
     const dispatch = useDispatch();
     const {mediaId}= useParams()
-    // console.log(allShelf[0])
-    console.log(mediaId)
 
     useEffect(() => {setSelected(selected)}, [selected])
 
-    console.log(selected) //undefined
-
     useEffect(() => {
-        // if(option.length){
+
             dispatch(add(mediaId, selected))
-            // console.log(option.id)
-            // console.log('---------------')
-            // console.log(shelfId)
-            // console.log(mediaId)
-        // }
+
     }, [dispatch, option.length])
 
     //this renders the shelves in the dropdown
@@ -43,8 +35,6 @@ export default function AddToShelfForm(){
         e.preventDefault()
         setErrors([])
 
-        console.log(selected)
-        console.log(mediaId)
         let data
         if(selected !== null){
             data = await dispatch(add(mediaId, selected))
@@ -75,7 +65,6 @@ export default function AddToShelfForm(){
                     </p>
                 </div>
                 <select className="select" name="option" value={selected} onChange={(e) => { setSelected(e.target.value)}}>
-                {/* onChange={(e) => { setSelected(e.target.value)} */}
                 {allShelf?.map((shelf) =>
                     <option className="option" value={shelf.id} key={shelf.id}>{shelf?.title}</option>
                     )}

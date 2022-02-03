@@ -17,19 +17,19 @@ const shelfError = (message) => {
   };
 
   router.get('/', restoreUser, asyncHandler(async(req, res, next) => {
-    const shelfMedia= await ShelfMedia.findAll({
-      include: [{model: Shelf},
-            {model: Media}]
-            })
+    const shelfMedia= await ShelfMedia.findAll()
     return res.json(shelfMedia)
 }))
 
+  router.get('/:id(\\d+)', restoreUser, asyncHandler(async(req, res, next) => {
+    const shelf = await ShelfMedia.findByPk(req.params.id, {
+      where: "shelfId",
+    })
+    return res.json(shelf)
+  }))
+
   router.post('/', restoreUser, asyncHandler(async(req, res, next) => {
       const {mediaId, shelfId} = req.body
-      console.log(req.body)
-      console.log(shelfId)
-      console.log(mediaId)
-      console.log("BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB")
       const{user}= req
       if(!user){
         return next(noteError('Must be logged in to add to a shelf.'))
