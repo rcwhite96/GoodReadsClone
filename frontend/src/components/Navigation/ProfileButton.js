@@ -7,11 +7,6 @@ const ProfileButton = ({user}) => {
    const dispatch = useDispatch();
    const [showMenu, setShowMenu] = useState(false);
 
-   const openMenu = () => {
-      if (showMenu) return;
-      setShowMenu(true);
-   };
-
    useEffect(() => {
       if (!showMenu) return;
 
@@ -29,11 +24,9 @@ const ProfileButton = ({user}) => {
       dispatch(logout());
    }
 
-
-
    return (
       <>
-                  <button onClick={signOut} className="nav-btn">Log Out</button>
+         <button onClick={signOut} className="nav-btn">Log Out</button>
       </>
    );
 };

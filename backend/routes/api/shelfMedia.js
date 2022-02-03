@@ -21,13 +21,29 @@ const shelfError = (message) => {
     return res.json(shelfMedia)
 }))
 
+  router.get('/:id(\\d+)', restoreUser, asyncHandler(async(req, res, next) => {
+    const shelf = await ShelfMedia.findByPk(req.params.id, {
+      where: "shelfId",
+    })
+    return res.json(shelf)
+  }))
+
   router.post('/', restoreUser, asyncHandler(async(req, res, next) => {
-      const {shelfId, mediaId} = req.body
-      console.log(shelfId)
-      console.log(mediaId)
-      console.log("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA")
-      const shelfMedia= await ShelfMedia.create({mediaId, shelfId})
+      const {mediaId, shelfId} = req.body
+      const{user}= req
+      if(!user){
+        return next(noteError('Must be logged in to add to a shelf.'))
+      }
+      const shelfMedia= await ShelfMedia.create({userId: user.dataValues.id, mediaId, shelfId})
       return res.json(shelfMedia)
+  }))
+
+  router.delete('/:id(\\d+)', restoreUser, asyncHandler(async(req, res, next) => {
+    const media = await ShelfMedia.findByPk(req.params.id, {
+      where: "mediaId",
+    })
+    await media.destroy()
+    return res.json({message: 'Media successfully deleted from shelf.'})
   }))
 
   module.exports = router;

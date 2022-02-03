@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import{ useParams, Redirect, NavLink, useHistory } from 'react-router-dom'
 import { getOne } from  '../../store/shelf'
 import {removeShelf} from '../../store/shelf'
+import {remove} from '../../store/shelfMedia'
 
 export default function OneShelfPage(){
     let dispatch = useDispatch()
@@ -10,10 +11,16 @@ export default function OneShelfPage(){
     const sessionUser= useSelector(state => state.session.user)
     const {shelfId} = useParams()
     const history = useHistory()
+    const {mediaId} = useParams()
 
     useEffect(() => {
         dispatch(getOne(shelfId))
     }, [dispatch])
+
+    const handleMediaDelete = async(mediaId) => {
+        await dispatch(remove(mediaId))
+        history.push('/shelves')
+    }
 
     const shelfMedia = currentShelf?.Media.map((media, idx) =>
     <div key={idx}>
@@ -21,7 +28,7 @@ export default function OneShelfPage(){
             <div className="image-container">
                 <img className="media-image" src={media.imageURL} alt="media-img"/>
                 <div className="title">{media.title}</div>
-                <button onClick={() => handleDelete(media.id)} className="nav-btn">Delete</button>
+                <button onClick={() => handleMediaDelete(media.id)} className="nav-btn">Delete</button>
             </div>
         </NavLink>
     </div>)

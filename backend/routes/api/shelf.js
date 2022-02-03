@@ -22,7 +22,7 @@ router.get('/', restoreUser, asyncHandler(async(req, res, next) => {
         return next(shelfError('Must be logged in to see your shelves.'))
     }
     const shelves = await Shelf.findAll({
-        order: [['updatedAt']]
+        order: [['updatedAt']],
     })
     return res.json(shelves)
 }))
@@ -34,7 +34,7 @@ router.get('/:id(\\d+)', restoreUser, asyncHandler(async(req, res, next) => {
         return next(shelfError('Must be logged in to see your shelves.'))
     }
     const shelf = await Shelf.findByPk(req.params.id, {
-        include: Media
+        include: [{model: Media, through: "ShelfMedia"}],
     })
     return res.json(shelf)
 }))

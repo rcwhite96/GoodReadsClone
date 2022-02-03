@@ -106,6 +106,8 @@ const shelfReducer = (state = initialState, action) => {
             case GET_ONE_SHELF:
                 newState = {...state}
                 newState.oneShelf = action.payload
+                console.log(newState)
+                console.log("CCCCCCCCCCCCCCCCCCCCCCCCCC")
                 return newState
             case POST_SHELF:
                 newState = {...state}

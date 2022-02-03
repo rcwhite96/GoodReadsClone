@@ -9,7 +9,7 @@ export default function EditShelfForm(){
 
     const sessionUser = useSelector((state => state.session.user))
     const shelf = useSelector((state => state.shelf.oneShelf))
-    console.log(shelf)
+    
 
     const [title, setTitle] = useState(shelf.title);
     const dispatch = useDispatch();
@@ -20,7 +20,7 @@ export default function EditShelfForm(){
         if(!shelf){
             dispatch(getShelves())
         } else {
-           
+
         }
     }, [dispatch, shelfId, title, shelf])
 

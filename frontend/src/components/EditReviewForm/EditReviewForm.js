@@ -12,7 +12,6 @@ export default function EditReviewForm(){
 
     const sessionUser = useSelector((state => state.session.user))
     const review = useSelector((state => state.review.reviews[reviewId - 1]))
-    console.log(review)
 
     const [title, setTitle] = useState(review?.title);
     const [content, setContent] = useState(review?.content)

@@ -17,7 +17,9 @@ module.exports = (sequelize, DataTypes) => {
     })
     Media.belongsToMany(models.Shelf, {
       through: 'ShelfMedia',
-      foreignKey: 'mediaId'
+      foreignKey: 'mediaId',
+      otherKey: 'shelfId'
+
     })
     Media.belongsTo(models.User, {
       foreignKey:'userId'
