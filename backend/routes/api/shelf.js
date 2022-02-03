@@ -79,7 +79,10 @@ const validateShelf = [
       if(!user){
           return next(shelfError('you must be logged in to delete a shelf.'))
       }
-      const shelf = await Shelf.findByPk(req.params.id)
+      const shelf = await Shelf.findByPk(req.params.id, {
+          include: [{model: ShelfMedia}],
+          where: "shelfId"
+      })
       await shelf.destroy()
       return res.json({message: 'Shelf successfully deleted.'})
   }))
