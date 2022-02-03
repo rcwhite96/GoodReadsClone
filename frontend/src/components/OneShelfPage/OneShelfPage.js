@@ -19,7 +19,7 @@ export default function OneShelfPage(){
 
     const handleMediaDelete = async(mediaId) => {
         await dispatch(remove(mediaId))
-        history.push('/shelves')
+        history.push(`/shelves/${shelfId}`)
     }
 
     const shelfMedia = currentShelf?.Media.map((media, idx) =>
