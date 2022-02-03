@@ -55,8 +55,6 @@ export const getOne = (id) => async dispatch => {
     if(res.ok){
         const data = await res.json()
         dispatch(getOneShelf(data))
-        console.log(data)
-        console.log("BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB")
         return data
     }
 }

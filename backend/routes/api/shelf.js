@@ -36,8 +36,6 @@ router.get('/:id(\\d+)', restoreUser, asyncHandler(async(req, res, next) => {
     const shelf = await Shelf.findByPk(req.params.id, {
         include: [{model: Media, through: "ShelfMedia"}],
     })
-    console.log(shelf)
-    console.log("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA")
     return res.json(shelf)
 }))
 

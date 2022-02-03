@@ -38,4 +38,12 @@ const shelfError = (message) => {
       return res.json(shelfMedia)
   }))
 
+  router.delete('/:id(\\d+)', restoreUser, asyncHandler(async(req, res, next) => {
+    const media = await ShelfMedia.findByPk(req.params.id, {
+      where: "mediaId",
+    })
+    await media.destroy()
+    return res.json({message: 'Media successfully deleted from shelf.'})
+  }))
+
   module.exports = router;
