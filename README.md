@@ -71,6 +71,6 @@ Add, delete and edit shelves to save your favorite media.
 
 # Future Plans
 
-- Implement a media status - a user will be able to label a piece of media as consumed or not yet consumed.
+- Add a carousel to the splash page.
 
-- Search - users can search for media.
+- Implement a media status - a user will be able to label a piece of media as viewed/read or not yet viewed/read.
