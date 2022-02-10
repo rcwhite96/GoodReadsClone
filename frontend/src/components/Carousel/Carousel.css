@@ -1,0 +1,7 @@
+.carousel-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 30rem;
+    width: 900px;
+}

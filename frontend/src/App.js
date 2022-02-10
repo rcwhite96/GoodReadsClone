@@ -23,7 +23,7 @@ import AddToShelfForm from './components/AddToShelfPage/AddToShelfForm'
 import SearchPage from './components/SearchPage/SearchPage';
 import CreateMedia from './components/AddMediaPage/AddMediaPage'
 import EditMediaForm from './components/EditMediaPage/EditMediaPage'
-
+import ImageCarousel from './components/Carousel/Carousel'
 function App() {
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
@@ -46,6 +46,7 @@ function App() {
           </Route>
           <Route path="/" exact={true}>
             <SplashPage/>
+            <ImageCarousel/>
             <Footer/>
           </Route>
           <Route path="/media" exact={true}>
