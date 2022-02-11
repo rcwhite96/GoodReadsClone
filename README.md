@@ -7,7 +7,7 @@ The Net Archives is a GoodReads clone dedicated to the cyberpunk genre. It goes 
 [Check out the live site!](https://the-net-archives.herokuapp.com/)
 
 # Technologies Used
-
+<img src="https://img.shields.io/badge/HTML-239120?style=for-the-badge&logo=html5&logoColor=white"/>
 - Express
 - React
 - Redux
