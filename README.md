@@ -61,4 +61,6 @@ Add, delete and edit shelves to save your favorite media.
 
 ✅ Add a carousel to the splash page.
 
-- Implement a media status - a user will be able to label a piece of media as viewed/read or not yet viewed/read.
+- Implement AWS S3 for photo storage.
+
+- Add a media status - a user will be able to label a piece of media as viewed/read or not yet viewed/read.
