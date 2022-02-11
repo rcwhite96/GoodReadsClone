@@ -8,6 +8,7 @@ function ImageCarousel(){
 
         return (
             <>
+            <div className="color-bar">
             <div className="carousel-container">
             <Carousel showThumbs={false} showStatus={false} infiniteLoop autoPlay>
                 <div>
@@ -27,11 +28,13 @@ function ImageCarousel(){
                 </div>
             </Carousel>
             </div>
+            </div>
             <div className="btn-div">
             <NavLink to="/signup">
                 <button className="media-btn">Sign Up Today</button>
             </NavLink>
             </div>
+
         </>
         );
         }

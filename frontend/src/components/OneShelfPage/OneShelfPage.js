@@ -11,7 +11,6 @@ export default function OneShelfPage(){
     const sessionUser= useSelector(state => state.session.user)
     const {shelfId} = useParams()
     const history = useHistory()
-    const {mediaId} = useParams()
 
     useEffect(() => {
         dispatch(getOne(shelfId))
@@ -23,6 +22,7 @@ export default function OneShelfPage(){
     }
 
     const shelfMedia = currentShelf?.Media.map((media, idx) =>
+    <>
     <div key={idx}>
         <NavLink key={idx} to={`/media/${media.id}`}>
             <div className="image-container">
@@ -31,7 +31,8 @@ export default function OneShelfPage(){
                 <button onClick={() => handleMediaDelete(media.id)} className="nav-btn">Delete</button>
             </div>
         </NavLink>
-    </div>)
+    </div>
+    </>)
 
     const handleDelete = async(shelfId) => {
         await dispatch(removeShelf(shelfId))

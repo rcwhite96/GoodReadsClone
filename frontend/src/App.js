@@ -24,6 +24,7 @@ import SearchPage from './components/SearchPage/SearchPage';
 import CreateMedia from './components/AddMediaPage/AddMediaPage'
 import EditMediaForm from './components/EditMediaPage/EditMediaPage'
 import ImageCarousel from './components/Carousel/Carousel'
+
 function App() {
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);

@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useSelector, useDispatch } from 'react-redux';
 import{ NavLink } from 'react-router-dom'
 import { getShelves } from  '../../store/shelf'
+
 import './AllShelves.css'
 
 export default function AllShelvesPage(){
@@ -19,7 +20,7 @@ export default function AllShelvesPage(){
     useEffect(() => {
         dispatch(getShelves())
     },[dispatch])
-    //as soon as person logs in 
+
     return (
         <>
             <div >{shelfList}</div>
