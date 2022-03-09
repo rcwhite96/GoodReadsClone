@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, Redirect } from 'react-router-dom';
 import { add } from '../../store/media';
 
+import './AddMediaPage'
+
 const CreateMedia = () => {
     const sessionUser = useSelector((state => state.session.user))
     const dispatch = useDispatch();
