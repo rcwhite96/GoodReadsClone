@@ -1,0 +1,12 @@
+.title-input {
+    margin-bottom: 10px;
+    width: 300px;
+}
+
+@media screen and (max-width: 775px){
+    .title-input{
+       margin-left: 20px;
+       margin-right: 20px;
+       width: 200px;
+    }
+}

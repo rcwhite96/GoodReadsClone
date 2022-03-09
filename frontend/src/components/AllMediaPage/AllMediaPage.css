@@ -50,3 +50,10 @@
     padding: 0;
     border-radius: 5px;
 }
+
+@media screen and (max-width: 775px){
+    .image-container{
+        width: 200px;
+        height: 350px;
+    }
+}

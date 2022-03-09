@@ -41,9 +41,11 @@ function App() {
         <Switch>
           <Route path="/login">
             <LoginFormPage />
+            <Footer/>
           </Route>
           <Route path="/signup">
             <SignUpFormPage />
+            <Footer/>
           </Route>
           <Route path="/" exact={true}>
             <SplashPage/>
