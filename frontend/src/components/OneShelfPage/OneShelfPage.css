@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&display=swap');
+
+.single-shelf-title{
+    color: rgb(220, 65, 128);
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 700;
+    font-size: 25px;
+    margin: 30px;
+    padding: 0px;
+}
+
+.shelf-all-container{
+    margin-top: 2rem;
+    display: flex;
+    width:100%;
+    justify-content: space-around;
+}
+
+@media screen and (max-width: 775px){
+    
+}

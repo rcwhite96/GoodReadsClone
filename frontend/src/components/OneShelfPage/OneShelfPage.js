@@ -5,6 +5,8 @@ import { getOne } from  '../../store/shelf'
 import {removeShelf} from '../../store/shelf'
 import {remove} from '../../store/shelfMedia'
 
+import './OneShelfPage.css'
+
 export default function OneShelfPage(){
     let dispatch = useDispatch()
     let currentShelf = useSelector(state => state.shelf.oneShelf)
@@ -46,9 +48,9 @@ export default function OneShelfPage(){
 
     return(
         <>
-            <div className="all-container">
+            <div className="shelf-all-container">
                 <div className="info-container">
-                    <div className="single-title">{currentShelf?.title}</div>
+                    <div className="single-shelf-title">{currentShelf?.title}</div>
                 </div>
             </div>
             <div className='media-container'>{shelfMedia}</div>
